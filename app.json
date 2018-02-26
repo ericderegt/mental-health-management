@@ -1,5 +1,15 @@
 {
   "expo": {
-    "sdkVersion": "25.0.0"
+   "name": "MH Test",
+   "icon": "./icon.png",
+   "version": "1.0.0",
+   "slug": "mh-test",
+   "sdkVersion": "25.0.0",
+   "ios": {
+     "bundleIdentifier": "com.ericderegt.mhtest"
+   },
+   "android": {
+     "package": "com.ericderegt.mhtest"
+   }
   }
 }
