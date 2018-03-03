@@ -17,13 +17,10 @@ import {
   ButtonGroup,
 } from 'react-native-elements';
 
-import globalStyle from './components/style';
-import GridItem from './components/gridItem';
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
   },
 });
 
@@ -65,7 +62,7 @@ class Home extends Component {
               editable={true}
               backgroundColor='#f5f5f5'
               style={{height: 200, shadowOffset: {width: 0.25,height: 1}, shadowColor: 'black', shadowOpacity: 0.25}}
-              borderColor='#20b2aa'
+              borderColor='#00cc66'
               borderWidth={2}
               borderRadius={10}
               multiline={true}
@@ -82,7 +79,7 @@ class Home extends Component {
             <Button
               title='Submit'
               textStyle={{fontSize: 18}}
-              buttonStyle={{width: 100, height: 50, backgroundColor: '#20b2aa'}}
+              buttonStyle={{width: 100, height: 50, backgroundColor: '#00cc66'}}
               iconRight={{ name: 'input'}}
               raised={true}
             />

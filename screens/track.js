@@ -2,12 +2,11 @@ import React, { Component } from 'react';
 import { ScrollView, View, Text, Picker, StyleSheet } from 'react-native';
 import { List, ListItem, Slider } from 'react-native-elements';
 
-import MH_Slider from './components/mhslider';
+import MH_Slider from '../components/mhslider';
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
     flexDirection: 'row',
   },
 });

@@ -3,17 +3,15 @@ import { StyleSheet, Text, View, Button, ScrollView, List, ListItem} from 'react
 import { Icon, Header } from 'react-native-elements';
 import { StackNavigator, TabNavigator } from 'react-navigation';
 
-import Home from './Home';
-import Track from './Track';
-import Thoughts from './Thoughts';
-import Goals from './Goals';
+import Home from './screens/home';
+import Track from './screens/track';
+import Thoughts from './screens/thoughts';
+import Goals from './screens/goals';
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: '#f9faf9',
   },
 });
 
@@ -28,7 +26,7 @@ const tabBarConfiguration = {
       shadowRadius: 4,
       elevation: 5,
     },
-    activeTintColor: '#20b2aa',
+    activeTintColor: '#00cc66',
   },
 };
 
@@ -67,9 +65,9 @@ export const Root = TabNavigator({
 export default class App extends React.Component {
   render() {
     return (
-      <View style={{ flex: 1, backgroundColor: '#fff' }}>
+      <View style={styles.container}>
         <Header
-          backgroundColor='#20b2aa'
+          backgroundColor='#00cc66'
           statusBarProps={{ barStyle: 'light-content' }}
           centerComponent={{ text: 'DEMO', style: { color: '#fff' } }}
         />
