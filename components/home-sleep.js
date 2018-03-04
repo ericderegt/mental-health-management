@@ -8,9 +8,6 @@ import { GlobalStyles, GlobalColors } from '../themes/global-styles';
 class SleepCard extends Component {
   constructor (props) {
     super(props)
-    this.state = {
-      hours: 3,
-    }
   };
 
   render() {

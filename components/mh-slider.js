@@ -72,7 +72,7 @@ class MH_Slider extends Component {
           minimumValue={0}
           maximumValue={5}
           minimumTrackTintColor={GlobalColors.primaryColor}
-          minimumTrackTintColor={GlobalColors.greyColor}
+          maximumTrackTintColor={GlobalColors.greyColor}
           value={this.state.value}
           onValueChange={value => this.setState({ value })}
         />

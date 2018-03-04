@@ -30,8 +30,8 @@ class MoodCard extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      mood: 3,
-      selectedIcon: 3,
+      mood: 0,
+      selectedIcon: 0,
     }
   };
 
