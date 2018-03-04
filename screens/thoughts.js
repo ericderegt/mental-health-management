@@ -53,7 +53,7 @@ class Thoughts extends Component {
               raised={true}
             />
         </View>
-    </View>
+      </View>
     );
   }
 }
