@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Platform } from 'react-native';
 import { Card, Button, Icon, Header } from 'react-native-elements';
+import Modal from "react-native-modal";
+import CustomMultiPicker from "react-native-multiple-select-list";
 
 import { GlobalStyles, GlobalColors } from '../themes/global-styles';
-import Modal from "react-native-modal";
+import ExerciseConstants from '../constants/exercise-constants';
 
 const styles = StyleSheet.create({
   container: {
@@ -11,6 +13,9 @@ const styles = StyleSheet.create({
   },
   textBox: {
     flex: 6
+  },
+  black: {
+    backgroundColor: '#000',
   }
 });
 
@@ -30,7 +35,7 @@ class ExerciseCard extends Component {
   renderRight() {
     return (
       <TouchableOpacity onPress={this._toggleModal}>
-        <Icon name='close' flex={1} size={28} color='#fff' />
+        <Icon name='close' flex={1} size={36} color='#fff' />
       </TouchableOpacity>
     )
   }
@@ -59,25 +64,39 @@ class ExerciseCard extends Component {
             <Header
               backgroundColor='#00cc66'
               statusBarProps={{ barStyle: 'light-content' }}
-              centerComponent={{ text: 'DEMO', style: { color: '#fff' } }}
               rightComponent={this.renderRight()}
-              outerContainerStyles={{height: Platform.OS === 'ios' ? 70 :  70 - 24}}
+              outerContainerStyles={{height: Platform.OS === 'ios' ? 70 :  70 - 24, borderBottomWidth: 0}}
             />
             <View style={{ flex: 1 }}>
-              <View style={styles.textBox}>
-                <Text style={GlobalStyles.text}>Relax</Text>
-                <Text style={GlobalStyles.subText}>Add an activity</Text>
-              </View>
-            </View>
-            <TouchableOpacity onPress={this._toggleModal}>
-              <Button
-                title='Submit'
-                textStyle={{fontSize: 18}}
-                buttonStyle={{width: 100, height: 50, backgroundColor: '#20b2aa'}}
-                iconRight={{ name: 'input'}}
-                raised={true}
+              <View style={{ flex: 1 }}/>
+              <CustomMultiPicker
+                options={ExerciseConstants}
+                search={false} // should show search bar?
+                multiple={true} //
+                placeholder={"Search"}
+                placeholderTextColor={'#757575'}
+                returnValue={"label"} // label or value
+                callback={(res)=>{ console.log(res) }} // callback, array of selected items
+                rowBackgroundColor={"#eee"}
+                rowHeight={40}
+                rowRadius={0}
+                iconColor={GlobalColors.primaryColor}
+                iconSize={30}
+                selectedIconName={"ios-checkmark-circle-outline"}
+                unselectedIconName={"ios-radio-button-off-outline"}
+                scrollViewHeight={500}
               />
-            </TouchableOpacity>
+              <Button
+                large
+                onPress={this._toggleModal}
+                backgroundColor="#fff"
+                color={GlobalColors.primaryColor}
+                rounded={true}
+                fontSize={22}
+                style={GlobalStyles.card}
+                title='SUBMIT' />
+              <View style={{ flex: 1 }}/>
+            </View>
           </View>
         </Modal>
 
