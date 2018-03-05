@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, Button, ScrollView, List, ListItem} from 'react-native';
+import { StyleSheet, Text, View, Button, ScrollView, List, ListItem, Platform } from 'react-native';
 import { Icon, Header } from 'react-native-elements';
 import { StackNavigator, TabNavigator } from 'react-navigation';
 
@@ -70,6 +70,7 @@ export default class App extends React.Component {
           backgroundColor='#00cc66'
           statusBarProps={{ barStyle: 'light-content' }}
           centerComponent={{ text: 'DEMO', style: { color: '#fff' } }}
+          outerContainerStyles={{height: Platform.OS === 'ios' ? 90 :  70 - 24}}
         />
         <Root/>
       </View>
