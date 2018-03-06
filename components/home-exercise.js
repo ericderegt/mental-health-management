@@ -1,23 +1,60 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Platform } from 'react-native';
-import { Card, Button, Icon, Header } from 'react-native-elements';
+import { Card, Button, Icon, Header, List, ListItem, CheckBox } from 'react-native-elements';
 import Modal from "react-native-modal";
 import CustomMultiPicker from "react-native-multiple-select-list";
 
 import { GlobalStyles, GlobalColors } from '../themes/global-styles';
 import ExerciseConstants from '../constants/exercise-constants';
+import MH_Slider from './mh-slider';
+import MultiSelectList from './modal-list';
+import CardModal from './card-modal';
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
   textBox: {
-    flex: 6
+    flex: 6,
   },
   black: {
     backgroundColor: '#000',
-  }
+  },
+  card: {
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 3 },
+    shadowOpacity: 0.2,
+    shadowRadius: 3,
+  },
 });
+
+const exerciseList = [
+  {
+    name: 'Run',
+    id: 1,
+    checked: false,
+  },
+  {
+    name: 'Lift',
+    id: 2,
+    checked: false,
+  },
+  {
+    name: 'Soulcycle',
+    id: 3,
+    checked: false,
+  },
+  {
+    name: 'SLT',
+    id: 4,
+    checked: false,
+  },
+  {
+    name: 'Tennis',
+    id: 5,
+    checked: false,
+  },
+]
 
 
 class ExerciseCard extends Component {
@@ -54,12 +91,12 @@ class ExerciseCard extends Component {
               <Text style={GlobalStyles.subText}>Goal: 3 times/week</Text>
             </View>
             <TouchableOpacity onPress={this._toggleModal}>
-              <Icon name='add' justifyContent='flexEnd' flex={1} size={36} color={GlobalColors.primaryColor} />
+              <Icon name='add' justifyContent='flex-end' flex={1} size={36} color={GlobalColors.primaryColor} />
             </TouchableOpacity>
           </View>
         </Card>
 
-        <Modal isVisible={this.state.isModalVisible} backdropOpacity={1.0} backdropColor={GlobalColors.primaryColor}>
+        <Modal isVisible={this.state.isModalVisible} backdropOpacity={1.0} backdropColor={GlobalColors.primaryColor} style={{ margin: 10 }}>
           <View style={{ flex: 1 }}>
             <Header
               backgroundColor='#00cc66'
@@ -69,33 +106,25 @@ class ExerciseCard extends Component {
             />
             <View style={{ flex: 1 }}>
               <View style={{ flex: 1 }}/>
-              <CustomMultiPicker
-                options={ExerciseConstants}
-                search={false} // should show search bar?
-                multiple={true} //
-                placeholder={"Search"}
-                placeholderTextColor={'#757575'}
-                returnValue={"label"} // label or value
-                callback={(res)=>{ console.log(res) }} // callback, array of selected items
-                rowBackgroundColor={"#eee"}
-                rowHeight={40}
-                rowRadius={0}
-                iconColor={GlobalColors.primaryColor}
-                iconSize={30}
-                selectedIconName={"ios-checkmark-circle-outline"}
-                unselectedIconName={"ios-radio-button-off-outline"}
-                scrollViewHeight={500}
-              />
-              <Button
-                large
-                onPress={this._toggleModal}
-                backgroundColor="#fff"
-                color={GlobalColors.primaryColor}
-                rounded={true}
-                fontSize={22}
-                style={GlobalStyles.card}
-                title='SUBMIT' />
-              <View style={{ flex: 1 }}/>
+
+              <View style={{ flex: 12 }}>
+                <View style={{backgroundColor: '#fff', padding: 10, marginBottom: 10}}>
+                  <MH_Slider name="Exercise"/>
+                </View>
+                <MultiSelectList data={exerciseList} />
+              </View>
+
+              <View style={{ flex: 2 }}>
+                <Button
+                  large
+                  onPress={this._toggleModal}
+                  backgroundColor="#fff"
+                  color={GlobalColors.primaryColor}
+                  rounded={true}
+                  fontSize={22}
+                  fontWeight='bold'
+                  title='SUBMIT' />
+              </View>
             </View>
           </View>
         </Modal>
@@ -106,3 +135,16 @@ class ExerciseCard extends Component {
 }
 
 export default ExerciseCard;
+
+// <List containerStyle={{borderWidth: 0, marginTop: 0, borderColor: GlobalColors.primaryColor}}>
+//   {
+//     list.map((l, i) => (
+//       <ListItem
+//         key={i}
+//         title={l.name}
+//         rightIcon={<CheckBox checkedIcon='dot-circle-o' uncheckedIcon='circle-o'/>}
+//         containerStyle={{borderWidth: 0, marginBottom: 0, marginTop: 0, borderColor: GlobalColors.primaryColor}}
+//       />
+//     ))
+//   }
+// </List>

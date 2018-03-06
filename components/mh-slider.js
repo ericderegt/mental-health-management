@@ -5,6 +5,7 @@ import Slider from "react-native-slider";
 
 import { GlobalStyles, GlobalColors } from '../themes/global-styles';
 import SleepConstants from '../constants/sleep-constants';
+import ExerciseConstants from '../constants/exercise-constants';
 
 const styles = StyleSheet.create({
   container: {
@@ -48,7 +49,8 @@ var sliderStyle = StyleSheet.create({
 });
 
 const currentSlider = {
-  'Sleep': SleepConstants
+  'Sleep': SleepConstants,
+  'Exercise': ExerciseConstants
 }
 
 
