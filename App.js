@@ -8,11 +8,16 @@ import Track from './screens/track';
 import Thoughts from './screens/thoughts';
 import Goals from './screens/goals';
 
+import { GlobalStyles, GlobalColors } from './themes/global-styles';
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f9faf9',
+    backgroundColor: GlobalColors.backgroundColor,
   },
+  white: {
+    color: '#fff'
+  }
 });
 
 const tabBarConfiguration = {
@@ -26,6 +31,7 @@ const tabBarConfiguration = {
       shadowRadius: 4,
       elevation: 5,
     },
+    showLabel: false,
     activeTintColor: '#00cc66',
   },
 };
@@ -69,8 +75,8 @@ export default class App extends React.Component {
         <Header
           backgroundColor='#00cc66'
           statusBarProps={{ barStyle: 'light-content' }}
-          centerComponent={{ text: 'DEMO', style: { color: '#fff' } }}
-          outerContainerStyles={{height: Platform.OS === 'ios' ? 90 :  70 - 24}}
+          centerComponent={{ text: 'DEMO', style: [GlobalStyles.text,styles.white] }}
+          outerContainerStyles={{height: Platform.OS === 'ios' ? 90 :  70 - 24, borderBottomWidth: 0}}
         />
         <Root/>
       </View>

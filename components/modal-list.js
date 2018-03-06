@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { FlatList, Text, TouchableOpacity, View, StyleSheet } from 'react-native';
-
-import CheckBox from 'react-native-check-box';
+import { Icon } from 'react-native-elements';
 
 import { GlobalStyles, GlobalColors } from '../themes/global-styles';
 
@@ -28,7 +27,11 @@ class ModalListItem extends React.PureComponent {
             </Text>
           </View>
           <View style={{ flex: 1 }}>
-            <CheckBox isChecked={this.props.selected} onClick={()=>this._onPress} checkBoxColor={GlobalColors.primaryColor} />
+            {
+              this.props.selected?
+                <Icon name='check-box' flex={1} size={28} color={GlobalColors.primaryColor} />:
+                <Icon name='check-box-outline-blank' flex={1} size={28} color={GlobalColors.primaryColor} />
+            }
           </View>
         </View>
       </TouchableOpacity>
@@ -58,7 +61,6 @@ class MultiSelectList extends React.PureComponent {
       onPressItem={this._onPressItem}
       selected={!!this.state.selected.get(item.id)}
       name={item.name}
-      checked={item.checked}
     />
   );
 

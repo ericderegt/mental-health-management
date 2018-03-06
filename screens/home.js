@@ -6,6 +6,7 @@ import {
   Keyboard,
   StyleSheet,
   View,
+  Image,
   TouchableOpacity,
 } from 'react-native';
 import {
@@ -17,7 +18,7 @@ import {
   ButtonGroup,
 } from 'react-native-elements';
 
-import { GlobalStyles } from '../themes/global-styles';
+import { GlobalStyles, GlobalColors } from '../themes/global-styles';
 
 import MoodCard from '../components/home-mood';
 import SleepCard from '../components/home-sleep';
@@ -34,6 +35,7 @@ const styles = StyleSheet.create({
 const monthText = StyleSheet.create({
   text: {
     textAlign: 'center',
+    color: GlobalColors.primaryColor,
   },
 });
 
@@ -46,9 +48,10 @@ class Home extends Component {
     return (
       <ScrollView style={styles.container}>
         <View>
-          <View style={{flex: 1, justifyContent: 'center', paddingTop: 10, paddingBottom: 0}}>
-            <Text style={[GlobalStyles.text, monthText.text]}>March</Text>
-            <Text style={GlobalStyles.largeText}>4</Text>
+          <View style={{flex: 1, flexDirection: 'row', alignItems: 'center', paddingTop: 10, paddingBottom: 0, paddingRight: 10, paddingLeft: 10}}>
+            <View style={{flex:2}}><Text style={[GlobalStyles.text]}>MAR</Text></View>
+            <View style={{flex:4}}><Icon name='filter-drama' flex={1} size={100} color={GlobalColors.primaryColor} /></View>
+            <View style={{flex:2}}><Text style={GlobalStyles.largeText}>4</Text></View>
           </View>
           <MoodCard />
           <SleepCard />

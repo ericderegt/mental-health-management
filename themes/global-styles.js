@@ -11,6 +11,7 @@ const GlobalColors = {
   primaryColor: '#00cc66',
   greyColor: '#b4b4b1',
   blackColor: '#383836',
+  backgroundColor: '#f9faf9',
 }
 
 const GlobalStyles = StyleSheet.create({

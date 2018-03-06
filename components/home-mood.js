@@ -52,7 +52,7 @@ class MoodCard extends Component {
 
   render() {
     return (
-      <Card containerStyle={GlobalStyles.card}>
+      <Card containerStyle={[GlobalStyles.card]}>
         <Text style={GlobalStyles.text}>
           How are you?
         </Text>

@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Platform } from 'react-native';
-import { Card, Button, Icon, Header, List, ListItem, CheckBox } from 'react-native-elements';
+import { Card, Button, Icon, Header} from 'react-native-elements';
 import Modal from "react-native-modal";
-import CustomMultiPicker from "react-native-multiple-select-list";
 
 import { GlobalStyles, GlobalColors } from '../themes/global-styles';
 import ExerciseConstants from '../constants/exercise-constants';
 import MH_Slider from './mh-slider';
 import MultiSelectList from './modal-list';
-import CardModal from './card-modal';
 
 const styles = StyleSheet.create({
   container: {
@@ -135,16 +133,3 @@ class ExerciseCard extends Component {
 }
 
 export default ExerciseCard;
-
-// <List containerStyle={{borderWidth: 0, marginTop: 0, borderColor: GlobalColors.primaryColor}}>
-//   {
-//     list.map((l, i) => (
-//       <ListItem
-//         key={i}
-//         title={l.name}
-//         rightIcon={<CheckBox checkedIcon='dot-circle-o' uncheckedIcon='circle-o'/>}
-//         containerStyle={{borderWidth: 0, marginBottom: 0, marginTop: 0, borderColor: GlobalColors.primaryColor}}
-//       />
-//     ))
-//   }
-// </List>
