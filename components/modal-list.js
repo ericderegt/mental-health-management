@@ -20,7 +20,7 @@ class ModalListItem extends React.PureComponent {
     const textColor = this.props.selected ? "red" : "black";
     return (
       <TouchableOpacity onPress={this._onPress}>
-        <View style={{ flex: 1, flexDirection: 'row', alignItems: 'center', backgroundColor: '#fff', padding: 10, borderWidth: 2, borderColor: GlobalColors.primaryColor }}>
+        <View style={{ flex: 1, flexDirection: 'row', alignItems: 'center', backgroundColor: '#fff', padding: 10, borderWidth: 4, borderColor: GlobalColors.primaryColor }}>
           <View style={{ flex: 8 }}>
             <Text style={[GlobalStyles.text, styles.itemText]}>
               {this.props.name}
