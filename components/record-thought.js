@@ -39,8 +39,7 @@ const ICON_THUMB_2 = new IconButton(require('../assets/images/thumb_2.png'), 15,
 const { width: DEVICE_WIDTH, height: DEVICE_HEIGHT } = Dimensions.get('window');
 const BACKGROUND_COLOR = '#FFF8ED';
 const LIVE_COLOR = '#FF0000';
-const DISABLED_OPACITY = 0.5;
-const RATE_SCALE = 3.0;
+const DISABLED_OPACITY = 1.0;
 
 class AudioExample extends React.Component {
   constructor(props) {
@@ -61,9 +60,7 @@ class AudioExample extends React.Component {
       isPlaying: false,
       isRecording: false,
       fontLoaded: false,
-      shouldCorrectPitch: true,
       volume: 1.0,
-      rate: 1.0,
     };
     this.recordingSettings = JSON.parse(JSON.stringify(Audio.RECORDING_OPTIONS_PRESET_LOW_QUALITY));
     // // UNCOMMENT THIS TO TEST maxFileSize:
@@ -94,10 +91,8 @@ class AudioExample extends React.Component {
         soundPosition: status.positionMillis,
         shouldPlay: status.shouldPlay,
         isPlaying: status.isPlaying,
-        rate: status.rate,
         muted: status.isMuted,
         volume: status.volume,
-        shouldCorrectPitch: status.shouldCorrectPitch,
         isPlaybackAllowed: true,
       });
     } else {
@@ -185,8 +180,6 @@ class AudioExample extends React.Component {
         isLooping: true,
         isMuted: this.state.muted,
         volume: this.state.volume,
-        rate: this.state.rate,
-        shouldCorrectPitch: this.state.shouldCorrectPitch,
       },
       this._updateScreenForSoundStatus
     );
@@ -230,24 +223,6 @@ class AudioExample extends React.Component {
     if (this.sound != null) {
       this.sound.setVolumeAsync(value);
     }
-  };
-
-  _trySetRate = async (rate, shouldCorrectPitch) => {
-    if (this.sound != null) {
-      try {
-        await this.sound.setRateAsync(rate, shouldCorrectPitch);
-      } catch (error) {
-        // Rate changing could not be performed, possibly because the client's Android API is too old.
-      }
-    }
-  };
-
-  _onRateSliderSlidingComplete = async value => {
-    this._trySetRate(value * RATE_SCALE, this.state.shouldCorrectPitch);
-  };
-
-  _onPitchCorrectionPressed = async value => {
-    this._trySetRate(this.state.rate, !this.state.shouldCorrectPitch);
   };
 
   _onSeekSliderValueChange = value => {
@@ -431,26 +406,6 @@ class AudioExample extends React.Component {
             </View>
             <View />
           </View>
-          <View style={[styles.buttonsContainerBase, styles.buttonsContainerBottomRow]}>
-            <Text style={[styles.timestamp, { fontFamily: 'cutive-mono-regular' }]}>Rate:</Text>
-            <Slider
-              style={styles.rateSlider}
-              trackImage={ICON_TRACK_1.module}
-              thumbImage={ICON_THUMB_1.module}
-              value={this.state.rate / RATE_SCALE}
-              onSlidingComplete={this._onRateSliderSlidingComplete}
-              disabled={!this.state.isPlaybackAllowed || this.state.isLoading}
-            />
-            <TouchableHighlight
-              underlayColor={BACKGROUND_COLOR}
-              style={styles.wrapper}
-              onPress={this._onPitchCorrectionPressed}
-              disabled={!this.state.isPlaybackAllowed || this.state.isLoading}>
-              <Text style={[{ fontFamily: 'cutive-mono-regular' }]}>
-                PC: {this.state.shouldCorrectPitch ? 'yes' : 'no'}
-              </Text>
-            </TouchableHighlight>
-          </View>
           <View />
         </View>
       </View>
@@ -568,9 +523,6 @@ const styles = StyleSheet.create({
     alignSelf: 'stretch',
     paddingRight: 20,
     paddingLeft: 20,
-  },
-  rateSlider: {
-    width: DEVICE_WIDTH / 2.0,
   },
 });
 

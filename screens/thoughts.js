@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import {
   Text,
-  TextInput,
   Keyboard,
   StyleSheet,
   View,
+  ScrollView,
   TouchableOpacity,
   Platform,
 } from 'react-native';
@@ -21,16 +21,10 @@ import Modal from "react-native-modal";
 
 import { GlobalStyles, GlobalColors } from '../themes/global-styles';
 import AudioExample from '../components/record-thought';
+import ThoughtDropdown from '../components/thought-dropdown';
+import TextInputMH from '../components/text-input';
 
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  text: {
-    fontSize: 26,
-  }
-});
+import { category, emotions } from '../constants/thoughts-constants.js';
 
 class Thoughts extends Component {
   constructor (props) {
@@ -94,10 +88,17 @@ class Thoughts extends Component {
               outerContainerStyles={{height: Platform.OS === 'ios' ? 70 :  70 - 24, borderBottomWidth: 0}}
             />
             <View style={{ flex: 1 }}>
-              <View style={{ flex: 1 }}/>
-
-              <View style={{ flex: 12 }}>
-                <AudioExample />
+              <View style={{flex: 12}}>
+                <ScrollView contentContainerStyle={styles.scroll}>
+                  <View style={{ flex: 2 }}>
+                    <ThoughtDropdown values={emotions} dropdownType={"emotions"} />
+                    <ThoughtDropdown values={category} dropdownType={"category"} />
+                  </View>
+                  <View style={{ flex: 1}}/>
+                  <View style={{ flex: 10 }}>
+                    <AudioExample />
+                  </View>
+                </ScrollView>
               </View>
 
               <View style={{ flex: 2 }}>
@@ -124,10 +125,17 @@ class Thoughts extends Component {
               outerContainerStyles={{height: Platform.OS === 'ios' ? 70 :  70 - 24, borderBottomWidth: 0}}
             />
             <View style={{ flex: 1 }}>
-              <View style={{ flex: 1 }}/>
+              <View style={{ flex: 3, marginTop: 25, justifyContent: 'center', alignItems: 'center' }}>
+                <Text style={GlobalStyles.text}>Add a thought</Text>
+                <ThoughtDropdown values={emotions} dropdownType={"emotions"} />
+                <ThoughtDropdown values={category} dropdownType={"category"} />
+              </View>
 
-              <View style={{ flex: 12 }}>
-                <Text>Blah</Text>
+              <View style={{ flex: 4, paddingTop: 20 }}>
+                <Text style={[GlobalStyles.text,styles.smallText]}>What are you thinking?</Text>
+                <View style={{padding: 10}}>
+                  <TextInputMH/>
+                </View>
               </View>
 
               <View style={{ flex: 2 }}>
@@ -139,7 +147,7 @@ class Thoughts extends Component {
                   rounded={true}
                   fontSize={22}
                   fontWeight='bold'
-                  title='TEST' />
+                  title='SUBMIT' />
               </View>
             </View>
           </View>
@@ -149,5 +157,22 @@ class Thoughts extends Component {
     );
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  text: {
+    fontSize: 26,
+  },
+  smallText: {
+    fontSize: 18,
+    color: GlobalStyles.blackColor,
+  },
+  scroll: {
+    flex: 1,
+    justifyContent: 'center',
+  }
+});
 
 export default Thoughts;
