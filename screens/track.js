@@ -4,12 +4,20 @@ import { List, ListItem, Slider } from 'react-native-elements';
 import Carousel from 'react-native-snap-carousel';
 
 import MH_Slider from '../components/mh-slider';
+import { GlobalStyles, GlobalColors } from '../themes/global-styles';
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: 'row',
   },
+  slide: {
+    width: 200,
+  },
+  sectionHeader: {
+    padding: 10,
+    backgroundColor: '#ccc',
+  }
 });
 
 const { width: viewportWidth, height: viewportHeight } = Dimensions.get('window');
@@ -69,7 +77,7 @@ class Track extends Component {
   _renderItem ({item, index}) {
       return (
         <View style={styles.slide}>
-          <Image source={{uri: item.illustration}} style={{height: 200}}/>
+          <Image source={{uri: item.illustration}} style={{height: 150, width: 175}}/>
           <Text style={styles.title}>{ item.title }</Text>
         </View>
       );
@@ -77,7 +85,12 @@ class Track extends Component {
 
   render() {
     return (
-      <View style={{flex: 1, padding: 10}}>
+    <ScrollView style={{flex: 1}}>
+
+      <View style={{flex: 1, padding: 0}}>
+        <View style={styles.sectionHeader}>
+          <Text style={GlobalStyles.text}>Sleep</Text>
+        </View>
         <Carousel
           ref={(c) => { this._carousel = c; }}
           data={ENTRIES1}
@@ -86,6 +99,73 @@ class Track extends Component {
           itemWidth={itemWidth}
         />
       </View>
+
+      <View style={{flex: 1, padding: 0}}>
+        <View style={styles.sectionHeader}>
+          <Text style={GlobalStyles.text}>Depression</Text>
+        </View>
+        <Carousel
+          ref={(c) => { this._carousel = c; }}
+          data={ENTRIES1}
+          renderItem={this._renderItem}
+          sliderWidth={sliderWidth}
+          itemWidth={itemWidth}
+        />
+      </View>
+
+      <View style={{flex: 1, padding: 0}}>
+        <View style={styles.sectionHeader}>
+          <Text style={GlobalStyles.text}>Meditation</Text>
+        </View>
+        <Carousel
+          ref={(c) => { this._carousel = c; }}
+          data={ENTRIES1}
+          renderItem={this._renderItem}
+          sliderWidth={sliderWidth}
+          itemWidth={itemWidth}
+        />
+      </View>
+
+      <View style={{flex: 1, padding: 0}}>
+        <View style={styles.sectionHeader}>
+          <Text style={GlobalStyles.text}>Exercise</Text>
+        </View>
+        <Carousel
+          ref={(c) => { this._carousel = c; }}
+          data={ENTRIES1}
+          renderItem={this._renderItem}
+          sliderWidth={sliderWidth}
+          itemWidth={itemWidth}
+        />
+      </View>
+
+      <View style={{flex: 1, padding: 0}}>
+        <View style={styles.sectionHeader}>
+          <Text style={GlobalStyles.text}>Food</Text>
+        </View>
+        <Carousel
+          ref={(c) => { this._carousel = c; }}
+          data={ENTRIES1}
+          renderItem={this._renderItem}
+          sliderWidth={sliderWidth}
+          itemWidth={itemWidth}
+        />
+      </View>
+
+      <View style={{flex: 1, padding: 0}}>
+        <View style={styles.sectionHeader}>
+          <Text style={GlobalStyles.text}>Relaxation</Text>
+        </View>
+        <Carousel
+          ref={(c) => { this._carousel = c; }}
+          data={ENTRIES1}
+          renderItem={this._renderItem}
+          sliderWidth={sliderWidth}
+          itemWidth={itemWidth}
+        />
+      </View>
+
+    </ScrollView>
     );
   }
 }
