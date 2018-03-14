@@ -75,7 +75,7 @@ class Thoughts extends Component {
             </TouchableOpacity>
           </View>
           <View style={{backgroundColor: GlobalColors.backgroundColor, flex: 2}}>
-
+            <Text style={GlobalStyles.text}>Recent Thoughts</Text>
           </View>
         </View>
 

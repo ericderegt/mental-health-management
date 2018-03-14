@@ -4,9 +4,9 @@ import { Icon, Header } from 'react-native-elements';
 import { StackNavigator, TabNavigator } from 'react-navigation';
 
 import Home from './screens/home';
-import Track from './screens/track';
-import Thoughts from './screens/thoughts';
-import Goals from './screens/goals';
+import Content from './screens/content';
+import Tracking from './screens/tracking';
+import Summary from './screens/summary';
 
 import { GlobalStyles, GlobalColors } from './themes/global-styles';
 
@@ -15,8 +15,8 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: GlobalColors.backgroundColor,
   },
-  white: {
-    color: '#fff'
+  headerText: {
+    color: GlobalColors.primaryColor,
   }
 });
 
@@ -44,24 +44,24 @@ export const Root = TabNavigator({
       tabBarIcon: ({ tintColor }) => <Icon name="home" size={35} color={tintColor} />,
     },
   },
-  Track: {
-    screen: Track,
+  Tracking: {
+    screen: Tracking,
     navigationOptions: {
-      tabBarLabel: 'Track',
+      tabBarLabel: 'Tracking',
       tabBarIcon: ({ tintColor }) => <Icon name="dashboard" size={35} color={tintColor} />
     },
   },
-  Thoughts: {
-    screen: Thoughts,
+  Content: {
+    screen: Content,
     navigationOptions: {
-      tabBarLabel: 'Thoughts',
+      tabBarLabel: 'Content',
       tabBarIcon: ({ tintColor }) => <Icon name="weekend" size={35} color={tintColor} />
     },
   },
-  Goals: {
-    screen: Goals,
+  Summary: {
+    screen: Summary,
     navigationOptions: {
-      tabBarLabel: 'Goals',
+      tabBarLabel: 'Summary',
       tabBarIcon: ({ tintColor }) => <Icon name="brightness-5" size={35} color={tintColor} />
     },
   },
@@ -73,9 +73,9 @@ export default class App extends React.Component {
     return (
       <View style={styles.container}>
         <Header
-          backgroundColor='#00cc66'
-          statusBarProps={{ barStyle: 'light-content' }}
-          centerComponent={{ text: 'DEMO', style: [GlobalStyles.text,styles.white] }}
+          backgroundColor='white'
+          statusBarProps={{ barStyle: 'default' }}
+          centerComponent={{ text: 'BLITHE', style: [GlobalStyles.text,styles.headerText] }}
           outerContainerStyles={{height: Platform.OS === 'ios' ? 90 :  70 - 24, borderBottomWidth: 0}}
         />
         <Root/>

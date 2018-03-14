@@ -3,10 +3,10 @@ import { View, Text, StyleSheet, TouchableOpacity, Platform } from 'react-native
 import { Card, Button, Icon, Header} from 'react-native-elements';
 import Modal from "react-native-modal";
 
-import { GlobalStyles, GlobalColors } from '../themes/global-styles';
-import ExerciseConstants from '../constants/exercise-constants';
-import MH_Slider from './mh-slider';
-import MultiSelectList from './modal-list';
+import { GlobalStyles, GlobalColors } from '../../themes/global-styles';
+import ExerciseConstants from '../../constants/exercise-constants';
+import MH_Slider from '../mh-slider';
+import MultiSelectList from '../modal-list';
 
 const styles = StyleSheet.create({
   container: {

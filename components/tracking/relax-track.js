@@ -3,8 +3,8 @@ import { View, ScrollView, Text, StyleSheet, TouchableOpacity, Platform } from '
 import { Card, Button, Icon, Header } from 'react-native-elements';
 import Modal from "react-native-modal";
 
-import { GlobalStyles, GlobalColors } from '../themes/global-styles';
-import MultiSelectList from './modal-list';
+import { GlobalStyles, GlobalColors } from '../../themes/global-styles';
+import MultiSelectList from '../modal-list';
 
 const styles = StyleSheet.create({
   container: {
