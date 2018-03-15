@@ -24,6 +24,9 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.2,
     shadowRadius: 3,
   },
+  text: {
+    color: '#00cc66',
+  }
 });
 
 const exerciseList = [
@@ -85,7 +88,7 @@ class ExerciseCard extends Component {
               <Icon name='directions-run' flex={1} size={36} color={GlobalColors.greyColor} />
             </View>
             <View style={styles.textBox}>
-              <Text style={GlobalStyles.text}>Exercise</Text>
+              <Text style={[GlobalStyles.text, styles.text]}>Exercise</Text>
               <Text style={GlobalStyles.subText}>Goal: 3 times/week</Text>
             </View>
             <TouchableOpacity onPress={this._toggleModal}>

@@ -25,6 +25,7 @@ class DailyGoal extends Component {
             <TextInput
               placeholder="What's your goal today?"
               style={GlobalStyles.subText}
+              returnKeyType={'done'}
             />
           </View>
           <View style={styles.inputButton}>

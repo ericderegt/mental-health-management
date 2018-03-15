@@ -20,7 +20,8 @@ const styles = StyleSheet.create({
     shadowRadius: 3,
   },
   text: {
-    color: '#fff',
+    color: '#8087ff',
+    fontWeight: 'bold',
   }
 });
 
@@ -80,14 +81,14 @@ class FoodCard extends Component {
         <Card containerStyle={GlobalStyles.card}>
           <View style={{ flex: 1, flexDirection: 'row' }}>
             <View style={{ flex: 1 }}>
-              <Icon name='restaurant-menu' flex={1} size={36} color={GlobalColors.greyColor} />
+              <Icon name='restaurant-menu' flex={1} size={36} color='#8087ff' />
             </View>
             <View style={styles.textBox}>
-              <Text style={GlobalStyles.text}>Food</Text>
+              <Text style={[GlobalStyles.text,styles.text]}>Food</Text>
               <Text style={GlobalStyles.subText}>Add a meal</Text>
             </View>
             <TouchableOpacity onPress={this._toggleModal}>
-              <Icon name='add' justifyContent='flex-end' flex={1} size={36} color={GlobalColors.primaryColor} />
+              <Icon name='add' justifyContent='flex-end' flex={1} size={36} color='#8087ff' />
             </TouchableOpacity>
           </View>
         </Card>

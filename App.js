@@ -75,7 +75,7 @@ export default class App extends React.Component {
         <Header
           backgroundColor='white'
           statusBarProps={{ barStyle: 'default' }}
-          centerComponent={{ text: 'BLITHE', style: [GlobalStyles.text,styles.headerText] }}
+          centerComponent={{ text: 'DEMO', style: [GlobalStyles.text,styles.headerText] }}
           outerContainerStyles={{height: Platform.OS === 'ios' ? 90 :  70 - 24, borderBottomWidth: 0}}
         />
         <Root/>

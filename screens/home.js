@@ -111,7 +111,7 @@ class Home extends Component {
         />
       </View>
 
-      <View style={{flex: 1, padding: 0}}>
+      <View style={{flex: 1, paddingBottom: 10}}>
         <View style={styles.sectionHeader}>
           <Text style={GlobalStyles.text}>Featured</Text>
         </View>
@@ -133,7 +133,7 @@ class Home extends Component {
       </View>
 
       <View style={styles.quote}>
-        <Text style={GlobalStyles.text}>“I’ve decided to be happy because it is good for my health.” – Voltaire</Text>
+        <Text style={GlobalStyles.subText}>“I’ve decided to be happy because it is good for my health.” – Voltaire</Text>
       </View>
 
     </ScrollView>
@@ -165,13 +165,15 @@ const styles = StyleSheet.create({
   },
   streaks: {
     flex: 1,
+    padding: 10,
     height: viewportHeight * 0.2,
-    backgroundColor: '#e4e8e4',
+    backgroundColor: '#f9f8f4',
   },
   quote: {
     flex: 1,
+    padding: 10,
     height: viewportHeight * 0.15,
-    backgroundColor: '#b9c5b9',
+    backgroundColor: '#ebe8db',
   },
 });
 

@@ -51,7 +51,7 @@ class Tracking extends Component {
           <View style={{flex: 1, flexDirection: 'row', alignItems: 'center', paddingTop: 10, paddingBottom: 0, paddingRight: 10, paddingLeft: 10}}>
             <View style={{flex:2}}><Text style={[GlobalStyles.text]}>MAR</Text></View>
             <View style={{flex:4}}><Icon name='wb-sunny' flex={1} size={100} color={GlobalColors.primaryColor} /></View>
-            <View style={{flex:2}}><Text style={GlobalStyles.largeText}>4</Text></View>
+            <View style={{flex:2}}><Text style={GlobalStyles.largeText}>15</Text></View>
           </View>
           <MoodCard />
           <SleepCard />
