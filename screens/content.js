@@ -75,6 +75,7 @@ class Content extends Component {
   render() {
     return (
       <ScrollView style={styles.container}>
+        <View style={{height: 44}}/>
         <View>
           <View style={{flex: 1, flexDirection: 'row', alignItems: 'center', paddingTop: 10, paddingBottom: 0, paddingRight: 10, paddingLeft: 10}}>
             <View style={{flex:1}}><Text style={[GlobalStyles.text]}>Content Library</Text></View>

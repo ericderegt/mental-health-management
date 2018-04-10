@@ -44,13 +44,6 @@ export const Root = TabNavigator({
       tabBarIcon: ({ tintColor }) => <Icon name="home" size={35} color={tintColor} />,
     },
   },
-  Tracking: {
-    screen: Tracking,
-    navigationOptions: {
-      tabBarLabel: 'Tracking',
-      tabBarIcon: ({ tintColor }) => <Icon name="dashboard" size={35} color={tintColor} />
-    },
-  },
   Content: {
     screen: Content,
     navigationOptions: {

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Platform } from 'react-native';
+import { View, ScrollView, Text, StyleSheet, TouchableOpacity, Platform } from 'react-native';
 
 import { Button, Header, Icon } from 'react-native-elements';
 import { LinearGradient } from 'expo';
@@ -46,23 +46,24 @@ class Survey extends Component {
     const { navigate } = this.props.navigation;
 
     return (
-      <View style={styles.container}>
+      <ScrollView style={styles.container}>
         <View style={{ flex: 1 }}>
           <View style={{ flex: 1 }}>
             <View style={{ flex: 1 }}/>
 
             <View style={{ flex: 12 }}>
-              <View style={{backgroundColor: '#fff', padding: 10, marginBottom: 10}}>
+              <View style={{padding: 10, marginBottom: 10}}>
                 <Text style={GlobalStyles.text}>I'm feeling</Text>
               </View>
               <MultiSelectList data={checkInList} />
             </View>
-
+            <View style={{height:20}}/>
             <View style={{ flex: 2 }}>
               <Button
                 large
-                backgroundColor="#fff"
-                color={GlobalColors.primaryColor}
+                onPress={() => navigate('Results')}
+                backgroundColor={GlobalColors.primaryColor}
+                color={GlobalColors.backgroundColor}
                 rounded={true}
                 fontSize={22}
                 fontWeight='bold'
@@ -70,7 +71,7 @@ class Survey extends Component {
             </View>
           </View>
         </View>
-      </View>
+      </ScrollView>
     );
   }
 }
@@ -78,6 +79,7 @@ class Survey extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: GlobalColors.backgroundColor,
   },
   text: {
     color: '#fff',
