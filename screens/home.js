@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { ScrollView, View, Text, Picker, StyleSheet, Dimensions, Image } from 'react-native';
 import { List, ListItem, Slider } from 'react-native-elements';
+import { StackNavigator } from 'react-navigation';
 
-import Carousel from 'react-native-snap-carousel';
 import { LinearGradient } from 'expo';
 
 import CheckIn from '../components/home/check-in';
-import DailyGoal from '../components/home/daily-goal';
+import Survey from './survey';
 import MH_Slider from '../components/mh-slider';
 import { GlobalStyles, GlobalColors } from '../themes/global-styles';
 
@@ -24,119 +24,16 @@ const itemHorizontalMargin = wp(2);
 export const sliderWidth = viewportWidth;
 export const itemWidth = slideWidth + itemHorizontalMargin * 2;
 
-export const ENTRIES1 = [
-    {
-        title: 'Beautiful and dramatic Antelope Canyon',
-        subtitle: 'Lorem ipsum dolor sit amet et nuncat mergitur',
-        illustration: 'https://i.imgur.com/UYiroysl.jpg'
-    },
-    {
-        title: 'Earlier this morning, NYC',
-        subtitle: 'Lorem ipsum dolor sit amet',
-        illustration: 'https://i.imgur.com/UPrs1EWl.jpg'
-    },
-    {
-        title: 'White Pocket Sunset',
-        subtitle: 'Lorem ipsum dolor sit amet et nuncat ',
-        illustration: 'https://i.imgur.com/MABUbpDl.jpg'
-    },
-    {
-        title: 'Acrocorinth, Greece',
-        subtitle: 'Lorem ipsum dolor sit amet et nuncat mergitur',
-        illustration: 'https://i.imgur.com/KZsmUi2l.jpg'
-    },
-    {
-        title: 'The lone tree, majestic landscape of New Zealand',
-        subtitle: 'Lorem ipsum dolor sit amet',
-        illustration: 'https://i.imgur.com/2nCt3Sbl.jpg'
-    },
-    {
-        title: 'Middle Earth, Germany',
-        subtitle: 'Lorem ipsum dolor sit amet',
-        illustration: 'https://i.imgur.com/lceHsT6l.jpg'
-    }
-];
-
-
-
 class Home extends Component {
   constructor (props) {
     super(props)
   };
 
-  _renderItem ({item, index}) {
-      return (
-        <View style={styles.slide}>
-          <Image source={{uri: item.illustration}} style={{height: 150, width: 175}}/>
-          <Text style={styles.title}>{ item.title }</Text>
-        </View>
-      );
-  }
-
   render() {
     return (
-    <ScrollView style={{flex: 1}}>
-
       <View style={styles.checkIn}>
-        <CheckIn/>
+        <CheckIn navigation={this.props.navigation}/>
       </View>
-
-      <View style={styles.dailyGoal}>
-        <DailyGoal/>
-      </View>
-
-      <View style={{flex: 1, padding: 0}}>
-        <View style={styles.sectionHeader}>
-          <Text style={GlobalStyles.text}>For You</Text>
-        </View>
-        <Carousel
-          ref={(c) => { this._carousel = c; }}
-          data={ENTRIES1}
-          renderItem={this._renderItem}
-          sliderWidth={sliderWidth}
-          itemWidth={itemWidth}
-        />
-      </View>
-
-      <View style={{flex: 1, padding: 0}}>
-        <View style={styles.sectionHeader}>
-          <Text style={GlobalStyles.text}>Recent</Text>
-        </View>
-        <Carousel
-          ref={(c) => { this._carousel = c; }}
-          data={ENTRIES1}
-          renderItem={this._renderItem}
-          sliderWidth={sliderWidth}
-          itemWidth={itemWidth}
-        />
-      </View>
-
-      <View style={{flex: 1, paddingBottom: 10}}>
-        <View style={styles.sectionHeader}>
-          <Text style={GlobalStyles.text}>Featured</Text>
-        </View>
-        <Carousel
-          ref={(c) => { this._carousel = c; }}
-          data={ENTRIES1}
-          renderItem={this._renderItem}
-          sliderWidth={sliderWidth}
-          itemWidth={itemWidth}
-        />
-      </View>
-
-      <View style={styles.streaks}>
-        <View style={styles.sectionHeader}>
-          <Text style={GlobalStyles.text}>Streaks</Text>
-        </View>
-        <Text style={GlobalStyles.subText}>Meditation</Text>
-        <Text style={GlobalStyles.subText}>Exercise</Text>
-      </View>
-
-      <View style={styles.quote}>
-        <Text style={GlobalStyles.subText}>“I’ve decided to be happy because it is good for my health.” – Voltaire</Text>
-      </View>
-
-    </ScrollView>
     );
   }
 }
@@ -154,7 +51,7 @@ const styles = StyleSheet.create({
   },
   checkIn: {
     flex: 1,
-    height: viewportHeight * 0.2,
+    height: viewportHeight,
   },
   dailyGoal: {
     flex: 1,
@@ -177,4 +74,18 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Home;
+export const HomeStack = StackNavigator({
+  Home: {
+    screen: Home,
+    navigationOptions: {
+      title: 'Home',
+    },
+    headerMode: 'none',
+  },
+  CheckIn: {
+    screen: Survey,
+    navigationOptions: {
+      title: 'Check In',
+    },
+  },
+});

@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, Button, ScrollView, List, ListItem, Platform } 
 import { Icon, Header } from 'react-native-elements';
 import { StackNavigator, TabNavigator } from 'react-navigation';
 
-import Home from './screens/home';
+import { HomeStack } from './screens/home';
 import Content from './screens/content';
 import Tracking from './screens/tracking';
 import Summary from './screens/summary';
@@ -38,7 +38,7 @@ const tabBarConfiguration = {
 
 export const Root = TabNavigator({
   Home: {
-    screen: Home,
+    screen: HomeStack,
     navigationOptions: {
       tabBarLabel: 'Home',
       tabBarIcon: ({ tintColor }) => <Icon name="home" size={35} color={tintColor} />,
@@ -72,12 +72,6 @@ export default class App extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Header
-          backgroundColor='white'
-          statusBarProps={{ barStyle: 'default' }}
-          centerComponent={{ text: 'DEMO', style: [GlobalStyles.text,styles.headerText] }}
-          outerContainerStyles={{height: Platform.OS === 'ios' ? 90 :  70 - 24, borderBottomWidth: 0}}
-        />
         <Root/>
       </View>
     );
