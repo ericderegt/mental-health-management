@@ -58,6 +58,8 @@ class CheckIn extends Component {
   }
 
   render() {
+    const { navigate } = this.props.navigation;
+
     return (
       <View style={styles.container}>
         <LinearGradient
@@ -67,12 +69,11 @@ class CheckIn extends Component {
           }}
         >
           <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-            <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-              <Text style={[GlobalStyles.text,styles.text]}>What's on your mind?</Text>
-            </View>
-            <View style={{flex: 1}}>
+            <View>
+              <Text style={[GlobalStyles.text,styles.text]}>How are you feeling?</Text>
+              <View style={{height: 10}}/>
               <Button
-                onPress={this._toggleModal}
+                onPress={() => navigate('CheckIn')}
                 color='#fff'
                 outline={true}
                 rounded={true}
