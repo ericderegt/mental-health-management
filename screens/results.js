@@ -5,6 +5,35 @@ import { Button, Header, Icon } from 'react-native-elements';
 
 import { GlobalStyles, GlobalColors } from '../themes/global-styles';
 
+import ResultsList from '../components/results/results-list';
+
+const resultsList = [
+  {
+    name: 'Meditations',
+    id: 1,
+  },
+  {
+    name: 'DBT Exercises',
+    id: 2,
+  },
+  {
+    name: 'Articles',
+    id: 3,
+  },
+  {
+    name: 'Videos',
+    id: 4,
+  },
+  {
+    name: 'Thoughts',
+    id: 5,
+  },
+  {
+    name: 'Challenges',
+    id: 6,
+  },
+]
+
 class Results extends Component {
   constructor (props) {
     super(props)
@@ -15,8 +44,11 @@ class Results extends Component {
 
     return (
       <ScrollView style={styles.container}>
-        <View style={{ flex: 1 }}>
-          <Text>Test</Text>
+        <View style={{height: 44}}/>
+        <View>
+          <View style={{ flex: 1}}>
+            <ResultsList data={resultsList} />
+          </View>
         </View>
       </ScrollView>
     );
