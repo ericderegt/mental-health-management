@@ -8,6 +8,7 @@ import { LinearGradient } from 'expo';
 import CheckIn from '../components/home/check-in';
 import Survey from './survey';
 import Results from './results';
+import Detail from '../components/detail/base';
 import MH_Slider from '../components/mh-slider';
 import { GlobalStyles, GlobalColors } from '../themes/global-styles';
 
@@ -83,7 +84,7 @@ export const HomeStack = StackNavigator({
     },
     headerMode: 'none',
   },
-  CheckIn: {
+  CheckInSurvey: {
     screen: Survey,
     navigationOptions: {
       title: 'Check In',
@@ -93,6 +94,12 @@ export const HomeStack = StackNavigator({
     screen: Results,
     navigationOptions: {
       title: 'Your Recommendations',
+    },
+  },
+  Detail: {
+    screen: Detail,
+    navigationOptions: {
+      title: 'Detail',
     },
   },
 });

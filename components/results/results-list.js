@@ -19,7 +19,7 @@ class ResultsList extends React.PureComponent {
   };
 
   _renderItem = ({item}) => (
-    <ResultsCard item={this.item}/>
+    <ResultsCard item={item} navigation={this.props.navigation} />
   );
 
   render() {

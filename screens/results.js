@@ -11,26 +11,32 @@ const resultsList = [
   {
     name: 'Meditations',
     id: 1,
+    category_id: 1,
   },
   {
     name: 'DBT Exercises',
     id: 2,
+    category_id: 1,
   },
   {
     name: 'Articles',
     id: 3,
+    category_id: 3,
   },
   {
     name: 'Videos',
     id: 4,
+    category_id: 2,
   },
   {
     name: 'Thoughts',
     id: 5,
+    category_id: 1,
   },
   {
     name: 'Challenges',
     id: 6,
+    category_id: 2,
   },
 ]
 
@@ -47,7 +53,7 @@ class Results extends Component {
         <View style={{height: 10}}/>
         <View>
           <View style={{ flex: 1}}>
-            <ResultsList data={resultsList} />
+            <ResultsList data={resultsList} navigation={this.props.navigation}/>
           </View>
         </View>
       </ScrollView>

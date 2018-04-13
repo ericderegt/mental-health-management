@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, Image } from 'react-native';
+import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 
 import { Card, Button } from 'react-native-elements';
 import { LinearGradient } from 'expo';
@@ -29,33 +29,47 @@ class ResultsCard extends Component {
     super(props)
   };
 
+  onPressCard = () => {
+      const { navigate } = this.props.navigation;
+      navigate('Detail', { item: this.props.item });
+  }
+
   render() {
     return (
+
       <View style={{ flex: 1 }}>
-        <Card containerStyle={{padding:0}}>
-          <LinearGradient
-            colors={[GlobalColors.primaryColor, '#00e673', '#00994d']}
-            style={{
-              flex: 1,
-            }}
-          >
-            <Image
-              style={{height:200, width:200}}
-              resizeMode="cover"
-              source={{uri: 'https://i.imgur.com/MABUbpDl.jpg' }}
-            />
-            <Text style={{marginBottom: 10}}>
-              The idea with React Native Elements is more about component structure than actual design.
-            </Text>
-            <Button
-              backgroundColor='#03A9F4'
-              fontFamily={GlobalStyles.subText.fontFamily}
-              buttonStyle={{borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0}}
-              title='VIEW NOW' />
-            <View style={{height:10}}/>
-          </LinearGradient>
-        </Card>
-        <View style={{height:10}}/>
+
+        <TouchableOpacity
+          onPress={this.onPressCard}
+        >
+
+          <Card containerStyle={{padding:0}}>
+            <LinearGradient
+              colors={[GlobalColors.primaryColor, '#00e673', '#00994d']}
+              style={{
+                flex: 1,
+              }}
+            >
+              <Image
+                style={{height:200, width:200}}
+                resizeMode="cover"
+                source={{uri: 'https://i.imgur.com/MABUbpDl.jpg' }}
+              />
+              <Text style={{marginBottom: 10}}>
+                The idea with React Native Elements is more about component structure than actual design.
+              </Text>
+              <Button
+                backgroundColor='#03A9F4'
+                fontFamily={GlobalStyles.subText.fontFamily}
+                buttonStyle={{borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0}}
+                title='VIEW NOW' />
+              <View style={{height:10}}/>
+            </LinearGradient>
+          </Card>
+          <View style={{height:10}}/>
+
+        </TouchableOpacity>
+
       </View>
     );
   }

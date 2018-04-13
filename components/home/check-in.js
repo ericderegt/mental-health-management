@@ -73,7 +73,7 @@ class CheckIn extends Component {
               <Text style={[GlobalStyles.text,styles.text]}>How are you feeling?</Text>
               <View style={{height: 10}}/>
               <Button
-                onPress={() => navigate('CheckIn')}
+                onPress={() => navigate('CheckInSurvey')}
                 color='#fff'
                 outline={true}
                 rounded={true}
