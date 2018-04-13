@@ -44,7 +44,7 @@ class Results extends Component {
 
     return (
       <ScrollView style={styles.container}>
-        <View style={{height: 44}}/>
+        <View style={{height: 10}}/>
         <View>
           <View style={{ flex: 1}}>
             <ResultsList data={resultsList} />

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { FlatList, Text } from 'react-native';
 
-// import ContentCard from './content-card';
+import ResultsCard from './results-card';
 
 class ResultsList extends React.PureComponent {
   state = {selected: (new Map(): Map<string, boolean>)};
@@ -19,7 +19,7 @@ class ResultsList extends React.PureComponent {
   };
 
   _renderItem = ({item}) => (
-    <Text>{item.id} / {item.name}</Text>
+    <ResultsCard item={this.item}/>
   );
 
   render() {
