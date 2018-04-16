@@ -51,7 +51,7 @@ class Survey extends Component {
           <View style={{ flex: 1 }}>
             <View style={{ flex: 1 }}/>
 
-            <View style={{ flex: 12 }}>
+            <View style={{ flex: 12, paddingRight: 30, paddingLeft: 30 }}>
               <View style={{padding: 10, marginBottom: 10}}>
                 <Text style={GlobalStyles.text}>I'm feeling</Text>
               </View>
@@ -59,8 +59,8 @@ class Survey extends Component {
             </View>
             <View style={{height:20}}/>
             <View style={{ flex: 2 }}>
+              <View style={{height:20}}/>
               <Button
-                large
                 onPress={() => navigate('Results')}
                 backgroundColor={GlobalColors.primaryColor}
                 color={GlobalColors.backgroundColor}

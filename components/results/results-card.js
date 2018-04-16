@@ -44,27 +44,20 @@ class ResultsCard extends Component {
         >
 
           <Card containerStyle={{padding:0}}>
-            <LinearGradient
-              colors={[GlobalColors.primaryColor, '#00e673', '#00994d']}
-              style={{
-                flex: 1,
-              }}
-            >
-              <Image
-                style={{height:200, width:200}}
-                resizeMode="cover"
-                source={{uri: 'https://i.imgur.com/MABUbpDl.jpg' }}
-              />
-              <Text style={{marginBottom: 10}}>
-                The idea with React Native Elements is more about component structure than actual design.
-              </Text>
-              <Button
-                backgroundColor='#03A9F4'
-                fontFamily={GlobalStyles.subText.fontFamily}
-                buttonStyle={{borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0}}
-                title='VIEW NOW' />
-              <View style={{height:10}}/>
-            </LinearGradient>
+              <LinearGradient
+                colors={[GlobalColors.primaryColor, this.props.item.fromColor, this.props.item.toColor]}
+                style={{
+                  flex: 1,
+                }}
+              >
+                <View style={{flex: 1, minHeight: 200, alignItems: 'center', justifyContent: 'center'}}>
+                  <View style={{height:10}}/>
+                  <Text style={[GlobalStyles.text]}>
+                    {this.props.item.name}
+                  </Text>
+                  <View style={{height:10}}/>
+                </View>
+              </LinearGradient>
           </Card>
           <View style={{height:10}}/>
 

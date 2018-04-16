@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
 
+import TextExercise from './text-exercise';
 import { GlobalStyles, GlobalColors } from '../../themes/global-styles';
 
 class Detail extends Component {
@@ -16,7 +17,7 @@ class Detail extends Component {
         {(function() {
             switch(params.item.category_id) {
                 case 1:
-                    return <Text>1</Text>;
+                    return <TextExercise/>;
                 case 2:
                     return <Text>2</Text>;
                 case 3:

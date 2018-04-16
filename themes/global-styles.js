@@ -44,7 +44,7 @@ const GlobalStyles = StyleSheet.create({
     fontFamily: Fonts.standard,
     marginBottom: 2,
     textAlign: 'center',
-    fontSize: 50,
+    fontSize: 28,
     color: GlobalColors.blackColor,
   },
 });

@@ -8,6 +8,7 @@ import { GlobalStyles, GlobalColors } from '../themes/global-styles';
 styles = StyleSheet.create({
   itemText: {
     textAlign: 'left',
+    color: GlobalColors.blackColor,
   }
 });
 
@@ -22,7 +23,7 @@ class ModalListItem extends React.PureComponent {
       <TouchableOpacity onPress={this._onPress}>
         <View style={{ flex: 1, flexDirection: 'row', alignItems: 'center', padding: 10, borderWidth: 4, borderColor: GlobalColors.backgroundColor }}>
           <View style={{ flex: 8 }}>
-            <Text style={[GlobalStyles.text, styles.itemText]}>
+            <Text style={[GlobalStyles.subText, styles.itemText]}>
               {this.props.name}
             </Text>
           </View>

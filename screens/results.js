@@ -9,34 +9,32 @@ import ResultsList from '../components/results/results-list';
 
 const resultsList = [
   {
-    name: 'Meditations',
+    name: 'Observe a leaf',
     id: 1,
     category_id: 1,
+    fromColor: '#33ccff',
+    toColor: '#ff99cc',
   },
   {
     name: 'DBT Exercises',
     id: 2,
     category_id: 1,
+    fromColor: '#00ff00',
+    toColor: '#ff6666',
   },
   {
     name: 'Articles',
     id: 3,
     category_id: 3,
+    fromColor: '#cc0099',
+    toColor: '#ff6666',
   },
   {
     name: 'Videos',
     id: 4,
     category_id: 2,
-  },
-  {
-    name: 'Thoughts',
-    id: 5,
-    category_id: 1,
-  },
-  {
-    name: 'Challenges',
-    id: 6,
-    category_id: 2,
+    fromColor: '#ffff00',
+    toColor: '#33cc33',
   },
 ]
 
