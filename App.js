@@ -51,13 +51,6 @@ export const Root = TabNavigator({
       tabBarIcon: ({ tintColor }) => <Icon name="weekend" size={35} color={tintColor} />
     },
   },
-  Summary: {
-    screen: Summary,
-    navigationOptions: {
-      tabBarLabel: 'Summary',
-      tabBarIcon: ({ tintColor }) => <Icon name="brightness-5" size={35} color={tintColor} />
-    },
-  },
 }, tabBarConfiguration);
 
 

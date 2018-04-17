@@ -1,27 +1,33 @@
 import React, { Component } from 'react';
-import { FlatList, Text, StyleSheet, ScrollView, View } from 'react-native';
+import { FlatList, Text, StyleSheet, ScrollView, View, TouchableOpacity } from 'react-native';
 
 import { LinearGradient } from 'expo';
 
 import { GlobalStyles, GlobalColors } from '../../themes/global-styles';
 
 class ContentTable extends React.PureComponent {
-  onPressCard = () => {
+  onPressCard = (item) => {
       const { navigate } = this.props.navigation;
-      navigate('Detail', { item: this.props.item });
+      navigate('Detail', { item: item });
   }
 
   _keyExtractor = (item, index) => item.id;
 
   _renderItem = ({item}) => (
     <View>
-      <LinearGradient
-        colors={[GlobalColors.primaryColor, '#66BB6A', '#81C784']}
+      <TouchableOpacity
+        onPress={() => this.onPressCard(item)}
       >
-        <View style={styles.card}>
-          <Text style={[GlobalStyles.text, styles.text]}>{item.name}</Text>
-        </View>
-      </LinearGradient>
+        <View style={{height:5}}/>
+        <LinearGradient
+          colors={['#81C784', '#66BB6A', GlobalColors.primaryColor]}
+        >
+          <View style={styles.card}>
+            <Text style={[GlobalStyles.text, styles.text]}>{item.name}</Text>
+          </View>
+        </LinearGradient>
+        <View style={{height:5}}/>
+      </TouchableOpacity>
     </View>
   );
 
@@ -44,7 +50,7 @@ class ContentTable extends React.PureComponent {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#81C784',
+    backgroundColor: GlobalColors.backgroundColor,
   },
   text: {
     fontSize: 18,
