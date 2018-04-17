@@ -36,6 +36,7 @@ class ContentTable extends React.PureComponent {
 
     return (
       <ScrollView style={styles.container}>
+        <View style={{height:5}}/>
         <FlatList
           data={params.data}
           extraData={this.state}
@@ -53,7 +54,8 @@ const styles = StyleSheet.create({
     backgroundColor: GlobalColors.backgroundColor,
   },
   text: {
-    fontSize: 18,
+    fontSize: 20,
+    fontWeight: 'normal',
     color: '#fff',
   },
   card: {

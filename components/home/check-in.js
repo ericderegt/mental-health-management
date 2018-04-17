@@ -72,9 +72,9 @@ class CheckIn extends Component {
             <View>
               <Image
                 source={require('../../assets/images/appy_logo.png')}
-                style={{height: 100, width: 200, resizeMode: Image.resizeMode.contain}}
+                style={{height: 50, width: 500, resizeMode: Image.resizeMode.contain}}
               />
-            <View style={{height: 60}}/>
+              <View style={{height: 60}}/>
               <Text style={[GlobalStyles.text,styles.text]}>How are you feeling?</Text>
               <View style={{height: 10}}/>
               <Button
@@ -82,7 +82,7 @@ class CheckIn extends Component {
                 color='#fff'
                 outline={true}
                 rounded={true}
-                fontSize={14}
+                fontSize={16}
                 fontWeight='bold'
                 title='CHECK IN' />
               <View style={{height: 40}}/>
