@@ -50,6 +50,9 @@ class Results extends Component {
     return (
       <ScrollView style={styles.container}>
         <View style={{height: 10}}/>
+        <View style={{padding: 10, marginBottom: 5}}>
+          <Text style={[GlobalStyles.text, styles.headerText]}>For You</Text>
+        </View>
         <View>
           <View style={{ flex: 1}}>
             <ResultsList data={resultsList} navigation={this.props.navigation}/>
@@ -67,7 +70,10 @@ const styles = StyleSheet.create({
   },
   text: {
     color: '#fff',
-  }
+  },
+  headerText: {
+    color: GlobalColors.blackColor,
+  },
 });
 
 export default Results;

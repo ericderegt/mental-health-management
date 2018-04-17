@@ -6,6 +6,7 @@ import Slider from "react-native-slider";
 import { GlobalStyles, GlobalColors } from '../themes/global-styles';
 import SleepConstants from '../constants/sleep-constants';
 import ExerciseConstants from '../constants/exercise-constants';
+import TimeConstants from '../constants/time-constants';
 
 const styles = StyleSheet.create({
   container: {
@@ -50,7 +51,8 @@ var sliderStyle = StyleSheet.create({
 
 const currentSlider = {
   'Sleep': SleepConstants,
-  'Exercise': ExerciseConstants
+  'Exercise': ExerciseConstants,
+  'Time': TimeConstants,
 }
 
 
@@ -65,14 +67,13 @@ class MH_Slider extends Component {
   render() {
     return (
       <View style={{marginTop:2, padding:1}}>
-        <Text style={GlobalStyles.text}>{currentSlider[this.props.name].text}</Text>
         <Text style={GlobalStyles.subText}>{currentSlider[this.props.name].slider[this.state.value]}</Text>
         <Slider
           trackStyle={sliderStyle.track}
           thumbStyle={sliderStyle.thumb}
           step={1}
           minimumValue={0}
-          maximumValue={5}
+          maximumValue={4}
           minimumTrackTintColor={GlobalColors.primaryColor}
           maximumTrackTintColor={GlobalColors.greyColor}
           value={this.state.value}

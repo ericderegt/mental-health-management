@@ -7,6 +7,8 @@ import Modal from "react-native-modal";
 
 import { GlobalStyles, GlobalColors } from '../themes/global-styles';
 import MultiSelectList from '../components/modal-list';
+import MoodSurvey from '../components/tracking/mood-survey';
+import MH_Slider from '../components/mh-slider';
 
 const checkInList = [
   {
@@ -20,18 +22,48 @@ const checkInList = [
     checked: false,
   },
   {
+    name: 'Anxious',
+    id: 4,
+    checked: false,
+  },
+  {
     name: 'Calm',
     id: 3,
     checked: false,
   },
   {
-    name: 'Angry',
-    id: 4,
+    name: 'Stressed',
+    id: 6,
     checked: false,
   },
   {
     name: 'Sad',
     id: 5,
+    checked: false,
+  },
+  {
+    name: 'Productive',
+    id: 7,
+    checked: false,
+  },
+  {
+    name: 'Angry',
+    id: 8,
+    checked: false,
+  },
+  {
+    name: 'Tired',
+    id: 9,
+    checked: false,
+  },
+  {
+    name: 'Lonely',
+    id: 10,
+    checked: false,
+  },
+  {
+    name: 'Optimistic',
+    id: 11,
     checked: false,
   },
 ]
@@ -49,13 +81,41 @@ class Survey extends Component {
       <ScrollView style={styles.container}>
         <View style={{ flex: 1 }}>
           <View style={{ flex: 1 }}>
-            <View style={{ flex: 1 }}/>
+
+            <View style={{minHeight: 200}}>
+              <LinearGradient
+                colors={[GlobalColors.primaryColor, '#fff']}
+                style={{
+                  flex: 1,
+                }}
+              >
+                <View style={{flex: 1, alignItems:'center', justifyContent:'center', padding: 10}}>
+                  <View style={{padding: 10}}/>
+                  <Text style={[GlobalStyles.subText, styles.headerText]}>Check in for personalized recommendations</Text>
+                  <View style={{padding: 10}}/>
+                </View>
+              </LinearGradient>
+            </View>
 
             <View style={{ flex: 12, paddingRight: 30, paddingLeft: 30 }}>
-              <View style={{padding: 10, marginBottom: 10}}>
-                <Text style={GlobalStyles.text}>I'm feeling</Text>
+              <View style={{padding: 10, marginBottom: 5}}>
+                <Text style={[GlobalStyles.subText, styles.headerText]}>How are you?</Text>
               </View>
-              <MultiSelectList data={checkInList} />
+              <View style={{padding: 10, marginBottom: 5}}>
+                <MoodSurvey/>
+              </View>
+              <View style={{padding: 10, marginBottom: 5}}>
+                <Text style={[GlobalStyles.subText, styles.headerText]}>How are you feeling?</Text>
+              </View>
+              <View style={{padding: 10, marginBottom: 5}}>
+                <MultiSelectList data={checkInList} />
+              </View>
+              <View style={{padding: 10, marginBottom: 5}}>
+                <Text style={[GlobalStyles.subText, styles.headerText]}>How much time do you have?</Text>
+              </View>
+              <View style={{padding: 10, marginBottom: 5}}>
+                <MH_Slider name={'Time'}/>
+              </View>
             </View>
             <View style={{height:20}}/>
             <View style={{ flex: 2 }}>
@@ -69,6 +129,7 @@ class Survey extends Component {
                 fontWeight='bold'
                 title='SUBMIT' />
             </View>
+            <View style={{padding: 10, marginBottom: 10}}/>
           </View>
         </View>
       </ScrollView>
@@ -83,7 +144,12 @@ const styles = StyleSheet.create({
   },
   text: {
     color: '#fff',
-  }
+  },
+  headerText: {
+    fontSize: 20,
+    fontWeight: 'normal',
+    color: GlobalColors.blackColor,
+  },
 });
 
 export default Survey;

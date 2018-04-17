@@ -71,7 +71,7 @@ export const HomeStack = StackNavigator({
   CheckInSurvey: {
     screen: Survey,
     navigationOptions: {
-      title: 'Check In',
+      title: '',
       headerTintColor: GlobalColors.primaryColor,
       headerTitleStyle: {
         color: GlobalColors.blackColor,
@@ -81,7 +81,7 @@ export const HomeStack = StackNavigator({
   Results: {
     screen: Results,
     navigationOptions: {
-      title: 'Recommendations',
+      title: '',
       headerTintColor: GlobalColors.primaryColor,
       headerTitleStyle: {
         color: GlobalColors.blackColor,
