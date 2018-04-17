@@ -17,11 +17,13 @@ const resultsList = [
     duration: 5,
   },
   {
-    name: 'DBT Exercises',
+    name: 'How to cope with anxiety',
     id: 2,
-    category_id: 1,
+    category_id: 2,
+    text: 'Anxiety is one of most prevalent mental health disorders, with 1 out of 14 people around the world being likely affected. Leading up to conditions such as depression, increased risk for suicide, disability and requirement of high health services, very few people who often need treatment actually receive it. In her talk “How to cope with anxiety”, Olivia Remes of the University of Cambridge will share her vision on anxiety and will unravel ways to treat and manage this health disorder',
     bgColor: '#81C784',
-    duration: 3,
+    uri: 'https://www.youtube.com/watch?v=WWloIAQpMcQ',
+    duration: 15,
   },
   {
     name: 'Articles',

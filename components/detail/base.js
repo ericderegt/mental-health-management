@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { View, Text } from 'react-native';
 
 import TextExercise from './text-exercise';
+import VideoExercise from './video';
 import { GlobalStyles, GlobalColors } from '../../themes/global-styles';
 
 class Detail extends Component {
@@ -19,7 +20,7 @@ class Detail extends Component {
                 case 1:
                     return <TextExercise item={params.item}/>;
                 case 2:
-                    return <Text>2</Text>;
+                    return <VideoExercise item={params.item}/>;
                 case 3:
                     return <Text>3</Text>;
                 default:

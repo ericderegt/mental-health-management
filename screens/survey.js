@@ -129,7 +129,7 @@ class Survey extends Component {
                 fontWeight='bold'
                 title='SUBMIT' />
             </View>
-            <View style={{padding: 10, marginBottom: 10}}/>
+            <View style={{padding: 10, marginBottom: 50}}/>
           </View>
         </View>
       </ScrollView>
