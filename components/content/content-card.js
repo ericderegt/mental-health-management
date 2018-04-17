@@ -34,15 +34,12 @@ class ContentCard extends Component {
       <View style={{ flex: 1 }}>
 
         <Card containerStyle={GlobalStyles.card}>
-          <View style={{ flex: 1, flexDirection: 'row', backgroundColor: this.props.bgColor }}>
+          <View style={{ flex: 1, padding: 10, backgroundColor: this.props.bgColor, justifyContent: 'center', alignItems: 'center' }}>
             <View style={{ flex: 1 }}>
-              <Icon name={this.props.icon} flex={1} size={36} color={GlobalColors.greyColor} />
+              <Icon name={this.props.icon} flex={1} size={36} color={'#fff'} />
             </View>
             <View style={styles.textBox}>
-              <Text style={GlobalStyles.text}>{this.props.name}</Text>
-            </View>
-            <View style={{ flex: 1 }}>
-              <Icon name='keyboard-arrow-right' justifyContent='center' flex={1} size={36} color={GlobalColors.primaryColor} />
+              <Text style={[GlobalStyles.text, styles.text]}>{this.props.name}</Text>
             </View>
         </View>
         </Card>

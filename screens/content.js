@@ -32,38 +32,26 @@ const contentList = [
   {
     name: 'Meditations',
     icon: 'filter-vintage',
-    bgColor: '#798f79',
+    bgColor: '#81C784',
     id: 1,
   },
   {
-    name: 'DBT Exercises',
+    name: 'Exercises',
     icon: 'landscape',
-    bgColor: '#7ebeff',
+    bgColor: '#4CAF50',
     id: 2,
   },
   {
     name: 'Articles',
     icon: 'local-library',
-    bgColor: '#ffa5d2',
+    bgColor: '#388E3C',
     id: 3,
   },
   {
     name: 'Videos',
     icon: 'local-movies',
-    bgColor: '#52a500',
+    bgColor: '#1B5E20',
     id: 4,
-  },
-  {
-    name: 'Thoughts',
-    icon: 'filter-drama',
-    bgColor: '#ffbe7e',
-    id: 5,
-  },
-  {
-    name: 'Challenges',
-    icon: 'flight',
-    bgColor: '#e6e600',
-    id: 6,
   },
 ]
 
@@ -77,7 +65,7 @@ class Content extends Component {
       <ScrollView style={styles.container}>
         <View style={{height: 44}}/>
         <View>
-          <View style={{flex: 1, flexDirection: 'row', alignItems: 'center', paddingTop: 10, paddingBottom: 0, paddingRight: 10, paddingLeft: 10}}>
+          <View style={{flex: 1, flexDirection: 'row', alignItems: 'center', paddingTop: 10, paddingBottom: 10, paddingRight: 10, paddingLeft: 10}}>
             <View style={{flex:1}}><Text style={[GlobalStyles.text]}>Content Library</Text></View>
           </View>
           <View style={{ flex: 1}}>
