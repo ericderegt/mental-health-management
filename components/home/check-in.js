@@ -63,7 +63,7 @@ class CheckIn extends Component {
     return (
       <View style={styles.container}>
         <LinearGradient
-          colors={[GlobalColors.primaryColor, '#00e673', '#00994d']}
+          colors={[GlobalColors.primaryColor, '#66BB6A', '#81C784']}
           style={{
             flex: 1,
           }}

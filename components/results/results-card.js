@@ -21,7 +21,11 @@ const styles = StyleSheet.create({
   },
   text: {
     color: '#fff',
-  }
+  },
+  smallText: {
+    color: '#F5F5F5',
+    fontSize: 14,
+  },
 });
 
 class ResultsCard extends Component {
@@ -44,20 +48,25 @@ class ResultsCard extends Component {
         >
 
           <Card containerStyle={{padding:0}}>
-              <LinearGradient
-                colors={[GlobalColors.primaryColor, this.props.item.fromColor, this.props.item.toColor]}
+              <View
                 style={{
-                  flex: 1,
+                  backgroundColor: this.props.item.bgColor,
                 }}
               >
                 <View style={{flex: 1, minHeight: 200, alignItems: 'center', justifyContent: 'center'}}>
                   <View style={{height:10}}/>
-                  <Text style={[GlobalStyles.text]}>
+                  <Text style={[GlobalStyles.text, styles.text]}>
                     {this.props.item.name}
                   </Text>
                   <View style={{height:10}}/>
+                  <View>
+                    <Text style={[GlobalStyles.text, styles.smallText]}>
+                      Duration: {this.props.item.duration} mins
+                    </Text>
+                  </View>
+                  <View style={{height:10}}/>
                 </View>
-              </LinearGradient>
+              </View>
           </Card>
           <View style={{height:10}}/>
 

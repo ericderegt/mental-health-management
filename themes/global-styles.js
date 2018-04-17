@@ -8,8 +8,8 @@ const Fonts = {
 }
 
 const GlobalColors = {
-  primaryColor: '#00cc66',
-  greyColor: '#b4b4b1',
+  primaryColor: '#4CAF50',
+  greyColor: '#BDBDBD',
   blackColor: '#383836',
   backgroundColor: '#fff',
 }
@@ -38,7 +38,7 @@ const GlobalStyles = StyleSheet.create({
     marginBottom: 2,
     textAlign: 'center',
     fontSize: 18,
-    color: '#9b9b97',
+    color: '#757575',
   },
   largeText: {
     fontFamily: Fonts.standard,

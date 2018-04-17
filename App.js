@@ -32,7 +32,7 @@ const tabBarConfiguration = {
       elevation: 5,
     },
     showLabel: false,
-    activeTintColor: '#00cc66',
+    activeTintColor: '#4CAF50',
   },
 };
 

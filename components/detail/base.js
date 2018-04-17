@@ -17,7 +17,7 @@ class Detail extends Component {
         {(function() {
             switch(params.item.category_id) {
                 case 1:
-                    return <TextExercise/>;
+                    return <TextExercise item={params.item}/>;
                 case 2:
                     return <Text>2</Text>;
                 case 3:

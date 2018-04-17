@@ -26,14 +26,14 @@ class TextExercise extends Component {
 
         <View style={{minHeight: 200}}>
           <LinearGradient
-            colors={[GlobalColors.primaryColor, '#00e673', GlobalColors.backgroundColor]}
+            colors={[this.props.item.bgColor, GlobalColors.backgroundColor]}
             style={{
               flex: 1,
             }}
           >
             <View style={{flex: 1, alignItems:'center', justifyContent:'center', padding: 10}}>
               <View style={{padding: 10}}/>
-              <Text style={GlobalStyles.text}>{exerciseObj.name}</Text>
+              <Text style={GlobalStyles.text}>{this.props.item.name}</Text>
               <View style={{padding: 10}}/>
             </View>
           </LinearGradient>
@@ -41,7 +41,7 @@ class TextExercise extends Component {
 
         <View>
           <View style={{padding: 30}}>
-            <Text style={[GlobalStyles.subText, styles.mainText]}>{exerciseObj.text}</Text>
+            <Text style={[GlobalStyles.subText, styles.mainText]}>{this.props.item.text}</Text>
           </View>
         </View>
 

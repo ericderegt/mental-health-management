@@ -55,25 +55,6 @@ const styles = StyleSheet.create({
     flex: 1,
     height: viewportHeight,
   },
-  dailyGoal: {
-    flex: 1,
-    paddingTop: 10,
-    paddingBottom: 10,
-    paddingRight: 0,
-    paddingLeft: 10,
-  },
-  streaks: {
-    flex: 1,
-    padding: 10,
-    height: viewportHeight * 0.2,
-    backgroundColor: '#f9f8f4',
-  },
-  quote: {
-    flex: 1,
-    padding: 10,
-    height: viewportHeight * 0.15,
-    backgroundColor: '#ebe8db',
-  },
 });
 
 export const HomeStack = StackNavigator({
@@ -81,25 +62,40 @@ export const HomeStack = StackNavigator({
     screen: Home,
     navigationOptions: {
       title: 'Home',
+      headerTintColor: GlobalColors.primaryColor,
+      headerTitleStyle: {
+        color: GlobalColors.blackColor,
+      },
     },
-    headerMode: 'none',
   },
   CheckInSurvey: {
     screen: Survey,
     navigationOptions: {
       title: 'Check In',
+      headerTintColor: GlobalColors.primaryColor,
+      headerTitleStyle: {
+        color: GlobalColors.blackColor,
+      },
     },
   },
   Results: {
     screen: Results,
     navigationOptions: {
-      title: 'Your Recommendations',
+      title: 'Recommendations',
+      headerTintColor: GlobalColors.primaryColor,
+      headerTitleStyle: {
+        color: GlobalColors.blackColor,
+      },
     },
   },
   Detail: {
     screen: Detail,
     navigationOptions: {
-      title: 'Detail',
+      title: '',
+      headerTintColor: GlobalColors.primaryColor,
+      headerTitleStyle: {
+        color: GlobalColors.blackColor,
+      },
     },
   },
 });
