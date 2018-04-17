@@ -26,6 +26,7 @@ class ContentList extends React.PureComponent {
       name={item.name}
       icon={item.icon}
       bgColor={item.bgColor}
+      navigation={this.props.navigation}
     />
   );
 

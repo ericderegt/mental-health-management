@@ -4,7 +4,7 @@ import { Icon, Header } from 'react-native-elements';
 import { StackNavigator, TabNavigator } from 'react-navigation';
 
 import { HomeStack } from './screens/home';
-import Content from './screens/content';
+import { ContentStack } from './screens/content';
 import Tracking from './screens/tracking';
 import Summary from './screens/summary';
 
@@ -45,7 +45,7 @@ export const Root = TabNavigator({
     },
   },
   Content: {
-    screen: Content,
+    screen: ContentStack,
     navigationOptions: {
       tabBarLabel: 'Content',
       tabBarIcon: ({ tintColor }) => <Icon name="weekend" size={35} color={tintColor} />

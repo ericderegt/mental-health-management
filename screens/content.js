@@ -18,13 +18,18 @@ import {
   ButtonGroup,
 } from 'react-native-elements';
 
+import { StackNavigator } from 'react-navigation';
+
 import { GlobalStyles, GlobalColors } from '../themes/global-styles';
 
 import ContentList from '../components/content/content-list';
+import ContentTable from '../components/content/content-table';
+import Detail from '../components/detail/base';
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: GlobalColors.backgroundColor,
   },
 });
 
@@ -63,13 +68,10 @@ class Content extends Component {
   render() {
     return (
       <ScrollView style={styles.container}>
-        <View style={{height: 44}}/>
+        <View style={{height: 10}}/>
         <View>
-          <View style={{flex: 1, flexDirection: 'row', alignItems: 'center', paddingTop: 10, paddingBottom: 10, paddingRight: 10, paddingLeft: 10}}>
-            <View style={{flex:1}}><Text style={[GlobalStyles.text]}>Content Library</Text></View>
-          </View>
           <View style={{ flex: 1}}>
-            <ContentList data={contentList} />
+            <ContentList data={contentList} navigation={this.props.navigation} />
           </View>
         </View>
       </ScrollView>
@@ -77,4 +79,37 @@ class Content extends Component {
   }
 }
 
-export default Content;
+export const ContentStack = StackNavigator({
+  Content: {
+    screen: Content,
+    navigationOptions: {
+      title: 'Content Library',
+      headerTintColor: GlobalColors.primaryColor,
+      headerTitleStyle: {
+        color: GlobalColors.blackColor,
+      },
+    },
+  },
+  ContentTable: {
+    screen: ContentTable,
+    navigationOptions: {
+      title: '',
+      headerTintColor: GlobalColors.primaryColor,
+      headerTitleStyle: {
+        color: GlobalColors.blackColor,
+      },
+    },
+  },
+  Detail: {
+    screen: Detail,
+    navigationOptions: {
+      title: '',
+      headerTintColor: GlobalColors.primaryColor,
+      headerTitleStyle: {
+        color: GlobalColors.blackColor,
+      },
+    },
+  },
+})
+
+export default ContentStack;
