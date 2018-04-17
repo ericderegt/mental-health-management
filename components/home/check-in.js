@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Platform } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Platform, Image } from 'react-native';
 
 import { Button, Header, Icon } from 'react-native-elements';
 import { LinearGradient } from 'expo';
@@ -70,6 +70,11 @@ class CheckIn extends Component {
         >
           <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
             <View>
+              <Image
+                source={require('../../assets/images/appy_logo.png')}
+                style={{height: 100, width: 200, resizeMode: Image.resizeMode.contain}}
+              />
+            <View style={{height: 60}}/>
               <Text style={[GlobalStyles.text,styles.text]}>How are you feeling?</Text>
               <View style={{height: 10}}/>
               <Button
@@ -80,6 +85,7 @@ class CheckIn extends Component {
                 fontSize={14}
                 fontWeight='bold'
                 title='CHECK IN' />
+              <View style={{height: 40}}/>
             </View>
           </View>
         </LinearGradient>
