@@ -44,11 +44,25 @@ export const Root = TabNavigator({
       tabBarIcon: ({ tintColor }) => <Icon name="home" size={35} color={tintColor} />,
     },
   },
+  Tracking: {
+    screen: Tracking,
+    navigationOptions: {
+      tabBarLabel: 'Tracking',
+      tabBarIcon: ({ tintColor }) => <Icon name="dashboard" size={35} color={tintColor} />
+    },
+  },
   Content: {
     screen: ContentStack,
     navigationOptions: {
       tabBarLabel: 'Content',
       tabBarIcon: ({ tintColor }) => <Icon name="weekend" size={35} color={tintColor} />
+    },
+  },
+  Summary: {
+    screen: Summary,
+    navigationOptions: {
+      tabBarLabel: 'Summary',
+      tabBarIcon: ({ tintColor }) => <Icon name="brightness-5" size={35} color={tintColor} />
     },
   },
 }, tabBarConfiguration);

@@ -32,13 +32,14 @@ const userList = {
 class Summary extends Component {
   render() {
     return (
-      <View style={{flex: 1}}>
+      <ScrollView style={{flex: 1}}>
+        <View style={{height:66}}/>
         <View style={{alignItems: 'center', padding: 10}}><Text style={{fontSize:26}}>Your week</Text></View>
         <View style={{alignItems: 'center', padding: 10}}><Text style={{fontSize:18}}>Mood</Text></View>
         <AreaChartMH style={{paddingBottom: 10}}/>
         <View style={{alignItems: 'center', padding: 10}}><Text style={{fontSize:18}}>Sleep</Text></View>
         <StackedAreaChartMH/>
-      </View>
+      </ScrollView>
     );
   }
 }

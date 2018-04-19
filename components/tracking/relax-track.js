@@ -78,6 +78,7 @@ class RelaxCard extends Component {
       <View style={{ flex: 1 }}>
 
         <Card containerStyle={GlobalStyles.card}>
+          <View style={{height:15}}/>
           <View style={{ flex: 1, flexDirection: 'row' }}>
             <View style={{ flex: 1 }}>
               <Icon name='beach-access' flex={1} size={36} color={GlobalColors.greyColor} />
@@ -90,6 +91,7 @@ class RelaxCard extends Component {
               <Icon name='add' justifyContent='flex-end' flex={1} size={36} color={GlobalColors.primaryColor} />
             </TouchableOpacity>
           </View>
+          <View style={{height:15}}/>
         </Card>
 
         <Modal isVisible={this.state.isModalVisible} backdropOpacity={1.0} backdropColor={GlobalColors.primaryColor} style={{ margin: 10 }}>

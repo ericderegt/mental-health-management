@@ -13,7 +13,10 @@ class SleepCard extends Component {
   render() {
     return (
       <Card containerStyle={GlobalStyles.card}>
-        <MH_Slider name="Sleep"/>
+        <View style={{flex:1, padding:5}}>
+          <Text style={GlobalStyles.text}>Sleep</Text>
+          <MH_Slider name="Sleep"/>
+        </View>
       </Card>
     );
   }

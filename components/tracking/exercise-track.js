@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Platform } from 'react-native';
+import { View, ScrollView, Text, StyleSheet, TouchableOpacity, Platform } from 'react-native';
 import { Card, Button, Icon, Header} from 'react-native-elements';
 import Modal from "react-native-modal";
 
@@ -73,7 +73,7 @@ class ExerciseCard extends Component {
   renderRight() {
     return (
       <TouchableOpacity onPress={this._toggleModal}>
-        <Icon name='close' flex={1} size={36} color='#fff' />
+        <Icon name='close' flex={1} size={36} color={GlobalColors.primaryColor} />
       </TouchableOpacity>
     )
   }
@@ -83,6 +83,7 @@ class ExerciseCard extends Component {
       <View style={{ flex: 1 }}>
 
         <Card containerStyle={GlobalStyles.card}>
+          <View style={{height:15}}/>
           <View style={{ flex: 1, flexDirection: 'row' }}>
             <View style={{ flex: 1 }}>
               <Icon name='directions-run' flex={1} size={36} color={GlobalColors.greyColor} />
@@ -95,12 +96,13 @@ class ExerciseCard extends Component {
               <Icon name='add' justifyContent='flex-end' flex={1} size={36} color={GlobalColors.primaryColor} />
             </TouchableOpacity>
           </View>
+          <View style={{height:15}}/>
         </Card>
 
-        <Modal isVisible={this.state.isModalVisible} backdropOpacity={1.0} backdropColor={GlobalColors.primaryColor} style={{ margin: 10 }}>
-          <View style={{ flex: 1 }}>
+        <Modal isVisible={this.state.isModalVisible} backdropOpacity={1.0} backdropColor='#fff' style={{ margin: 10 }}>
+          <ScrollView style={{ flex: 1 }}>
             <Header
-              backgroundColor='#00cc66'
+              backgroundColor='#fff'
               statusBarProps={{ barStyle: 'light-content' }}
               rightComponent={this.renderRight()}
               outerContainerStyles={{height: Platform.OS === 'ios' ? 70 :  70 - 24, borderBottomWidth: 0}}
@@ -114,20 +116,20 @@ class ExerciseCard extends Component {
                 </View>
                 <MultiSelectList data={exerciseList} />
               </View>
-
+              <View style={{height:15}}/>
               <View style={{ flex: 2 }}>
                 <Button
                   large
                   onPress={this._toggleModal}
-                  backgroundColor="#fff"
-                  color={GlobalColors.primaryColor}
+                  backgroundColor={GlobalColors.primaryColor}
+                  color='#fff'
                   rounded={true}
                   fontSize={22}
                   fontWeight='bold'
                   title='SUBMIT' />
               </View>
             </View>
-          </View>
+          </ScrollView>
         </Modal>
 
       </View>
