@@ -8,6 +8,7 @@ import ExerciseConstants from '../../constants/exercise-constants';
 import MH_Slider from '../mh-slider';
 import MultiSelectList from '../modal-list';
 import AudioExample from '../record-thought';
+import TextInputMH from '../text-input';
 
 const styles = StyleSheet.create({
   container: {
@@ -15,6 +16,9 @@ const styles = StyleSheet.create({
   },
   textBox: {
     flex: 6,
+  },
+  text: {
+    color: '#fff',
   },
   black: {
     backgroundColor: '#000',
@@ -56,7 +60,7 @@ const exerciseList = [
 ]
 
 
-class ExerciseCard extends Component {
+class ThoughtCard extends Component {
   constructor (props) {
     super(props)
   };
@@ -74,7 +78,7 @@ class ExerciseCard extends Component {
 
   renderRight() {
     return (
-      <TouchableOpacity onPress={this._toggleModal}>
+      <TouchableOpacity onPress={this.state.isModalVisible? this._toggleModal: this._toggleTextModal}>
         <Icon name='close' flex={1} size={36} color={GlobalColors.primaryColor} />
       </TouchableOpacity>
     )
@@ -88,23 +92,23 @@ class ExerciseCard extends Component {
           <View style={{height:15}}/>
           <View style={{flex:1, padding:5}}>
             <Text style={GlobalStyles.text}>Add a thought</Text>
-            <View style={{backgroundColor: '#000', flex: 2, flexDirection: 'row', justifyContent: 'space-around'}}>
+            <View style={{flex: 2, flexDirection: 'row', justifyContent: 'space-around'}}>
               <TouchableOpacity onPress={this._toggleModal}>
-                <Icon name='keyboard-voice' flex={1} size={102} color={GlobalColors.primaryColor} />
+                <Icon name='keyboard-voice' flex={1} size={54} color={GlobalColors.primaryColor} />
               </TouchableOpacity>
               <TouchableOpacity onPress={this._toggleTextModal}>
-                <Icon name='mode-edit' flex={1} size={102} color={GlobalColors.primaryColor} />
+                <Icon name='mode-edit' flex={1} size={54} color={GlobalColors.primaryColor} />
               </TouchableOpacity>
             </View>
           </View>
           <View style={{height:15}}/>
         </Card>
 
-        <Modal isVisible={this.state.isModalVisible} backdropOpacity={1.0} backdropColor={GlobalColors.primaryColor} style={{ margin: 10 }}>
+        <Modal isVisible={this.state.isModalVisible} backdropOpacity={1.0} backdropColor='#fff' style={{ margin: 10 }}>
           <ScrollView style={{ flex: 1 }}>
             <Header
-              backgroundColor='#00cc66'
-              statusBarProps={{ barStyle: 'light-content' }}
+              backgroundColor='#fff'
+              statusBarProps={{ barStyle: 'default' }}
               rightComponent={this.renderRight()}
               outerContainerStyles={{height: Platform.OS === 'ios' ? 70 :  70 - 24, borderBottomWidth: 0}}
             />
@@ -112,15 +116,19 @@ class ExerciseCard extends Component {
               <View style={{ flex: 1 }}/>
 
               <View style={{ flex: 12 }}>
+                <View style={{height: 20}}/>
+                <Text style={[GlobalStyles.text]}>What's on your mind?</Text>
+                <View style={{height:15}}/>
                 <AudioExample />
+                <View style={{height:15}}/>
               </View>
 
-              <View style={{ flex: 2 }}>
+              <View style={{ flex: 2, padding: 15 }}>
                 <Button
                   large
-                  onPress={this._toggleModal}
-                  backgroundColor="#fff"
-                  color={GlobalColors.primaryColor}
+                  onPress={this.state.isModalVisible? this._toggleModal: this._toggleTextModal}
+                  backgroundColor={GlobalColors.primaryColor}
+                  color='#fff'
                   rounded={true}
                   fontSize={22}
                   fontWeight='bold'
@@ -130,27 +138,31 @@ class ExerciseCard extends Component {
           </ScrollView>
         </Modal>
 
-        <Modal isVisible={this.state.isTextModalVisible} backdropOpacity={1.0} backdropColor={GlobalColors.primaryColor} style={{ margin: 10 }}>
+        <Modal isVisible={this.state.isTextModalVisible} backdropOpacity={1.0} backdropColor='#fff' style={{ margin: 10 }}>
           <ScrollView style={{ flex: 1 }}>
             <Header
-              backgroundColor='#00cc66'
-              statusBarProps={{ barStyle: 'light-content' }}
+              backgroundColor='#fff'
+              statusBarProps={{ barStyle: 'default' }}
               rightComponent={this.renderRight()}
               outerContainerStyles={{height: Platform.OS === 'ios' ? 70 :  70 - 24, borderBottomWidth: 0}}
             />
             <View style={{ flex: 1 }}>
               <View style={{ flex: 1 }}/>
 
-              <View style={{ flex: 12 }}>
-                <AudioExample />
+              <View style={{ flex: 12, padding: 15 }}>
+                <View style={{height: 20}}/>
+                <Text style={[GlobalStyles.text]}>What's on your mind?</Text>
+                <View style={{height:15}}/>
+                <TextInputMH />
+                <View style={{height:15}}/>
               </View>
 
-              <View style={{ flex: 2 }}>
+              <View style={{ flex: 2, padding: 20 }}>
                 <Button
                   large
-                  onPress={this._toggleModal}
-                  backgroundColor="#fff"
-                  color={GlobalColors.primaryColor}
+                  onPress={this.state.isModalVisible? this._toggleModal: this._toggleTextModal}
+                  backgroundColor={GlobalColors.primaryColor}
+                  color='#fff'
                   rounded={true}
                   fontSize={22}
                   fontWeight='bold'
@@ -165,4 +177,4 @@ class ExerciseCard extends Component {
   }
 }
 
-export default ExerciseCard;
+export default ThoughtCard;

@@ -16,7 +16,7 @@ export default class TextInputMH extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      text: 'Useless Multiline Placeholder',
+      text: '',
     };
   }
 
@@ -25,8 +25,8 @@ export default class TextInputMH extends Component {
       <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
         <View style={{flex: 1}}>
          <View style={{
-           borderColor: '#fff',
-           borderWidth: 2,
+           borderColor: GlobalColors.greyColor,
+           borderWidth: 1,
            height: 200,
          }}>
            <TextInput

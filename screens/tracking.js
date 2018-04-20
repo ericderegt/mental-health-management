@@ -25,6 +25,7 @@ import SleepCard from '../components/tracking/sleep-track';
 import ExerciseCard from '../components/tracking/exercise-track';
 import RelaxCard from '../components/tracking/relax-track';
 import FoodCard from '../components/tracking/food-track';
+import ThoughtCard from '../components/tracking/thoughts-track';
 
 const styles = StyleSheet.create({
   container: {
@@ -55,6 +56,7 @@ class Tracking extends Component {
             <View style={{flex:2}}><Text style={GlobalStyles.largeText}>1</Text></View>
           </View>
           <View style={{height: 22}}/>
+          <ThoughtCard />
           <SleepCard />
           <ExerciseCard />
           <FoodCard />

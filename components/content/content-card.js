@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
   }
 });
 
-const resultsList = [
+const MeditationsList = [
   {
     name: 'Observe a leaf',
     id: 1,
@@ -60,6 +60,57 @@ const resultsList = [
   },
 ]
 
+const ExercisesList = [
+  {
+    name: 'Articles',
+    id: 3,
+    category_id: 3,
+    bgColor: '#388E3C',
+    duration: 2,
+  },
+  {
+    name: 'Videos',
+    id: 4,
+    category_id: 2,
+    bgColor: '#1B5E20',
+    duration: 10,
+  },
+]
+
+const ArticlesList = [
+  {
+    name: 'Articles',
+    id: 3,
+    category_id: 3,
+    bgColor: '#388E3C',
+    duration: 2,
+  },
+  {
+    name: 'Videos',
+    id: 4,
+    category_id: 2,
+    bgColor: '#1B5E20',
+    duration: 10,
+  },
+]
+
+const VideosList = [
+  {
+    name: 'Videos',
+    id: 4,
+    category_id: 2,
+    bgColor: '#1B5E20',
+    duration: 10,
+  },
+]
+
+const selectedCategory = {
+  'Meditations': MeditationsList,
+  'Exercises': ExercisesList,
+  'Articles': ArticlesList,
+  'Videos': VideosList,
+}
+
 class ContentCard extends Component {
   constructor (props) {
     super(props)
@@ -67,7 +118,7 @@ class ContentCard extends Component {
 
   onPressCard = () => {
       const { navigate } = this.props.navigation;
-      navigate('ContentTable', { data: resultsList });
+      navigate('ContentTable', { data: selectedCategory[this.props.name] });
   }
 
   render() {
