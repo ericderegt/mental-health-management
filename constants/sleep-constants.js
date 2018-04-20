@@ -7,7 +7,8 @@ const SleepConstants = {
     3: '6 hours',
     4: '7 hours',
     5: '8+ hours',
-  }
+  },
+  size: 5,
 }
 
 export default SleepConstants;

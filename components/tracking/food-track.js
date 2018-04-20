@@ -95,7 +95,7 @@ class FoodCard extends Component {
           <ScrollView style={{ flex: 1 }}>
             <Header
               backgroundColor='#fff'
-              statusBarProps={{ barStyle: 'normal' }}
+              statusBarProps={{ barStyle: 'default' }}
               rightComponent={this.renderRight()}
               outerContainerStyles={{height: Platform.OS === 'ios' ? 70 :  70 - 24, borderBottomWidth: 0}}
             />

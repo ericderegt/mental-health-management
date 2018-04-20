@@ -7,7 +7,8 @@ const ExerciseConstants = {
     3: '45 minutes',
     4: '60 minutes',
     5: '75+ minutes',
-  }
+  },
+  size: 5,
 }
 
 export default ExerciseConstants;

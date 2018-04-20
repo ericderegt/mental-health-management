@@ -73,7 +73,7 @@ class MH_Slider extends Component {
           thumbStyle={sliderStyle.thumb}
           step={1}
           minimumValue={0}
-          maximumValue={2}
+          maximumValue={currentSlider[this.props.name].size}
           minimumTrackTintColor={GlobalColors.primaryColor}
           maximumTrackTintColor={GlobalColors.greyColor}
           value={this.state.value}

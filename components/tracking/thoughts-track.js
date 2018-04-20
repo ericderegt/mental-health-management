@@ -7,6 +7,7 @@ import { GlobalStyles, GlobalColors } from '../../themes/global-styles';
 import ExerciseConstants from '../../constants/exercise-constants';
 import MH_Slider from '../mh-slider';
 import MultiSelectList from '../modal-list';
+import AudioExample from '../record-thought';
 
 const styles = StyleSheet.create({
   container: {
@@ -61,11 +62,15 @@ class ExerciseCard extends Component {
   };
 
   state = {
-    isModalVisible: false
+    isModalVisible: false,
+    isTextModalVisible: false,
   };
 
   _toggleModal = () =>
     this.setState({ isModalVisible: !this.state.isModalVisible });
+
+  _toggleTextModal = () =>
+    this.setState({ isTextModalVisible: !this.state.isTextModalVisible });
 
   renderRight() {
     return (
@@ -81,26 +86,25 @@ class ExerciseCard extends Component {
 
         <Card containerStyle={GlobalStyles.card}>
           <View style={{height:15}}/>
-          <View style={{ flex: 1, flexDirection: 'row' }}>
-            <View style={{ flex: 1 }}>
-              <Icon name='directions-run' flex={1} size={36} color={GlobalColors.greyColor} />
+          <View style={{flex:1, padding:5}}>
+            <Text style={GlobalStyles.text}>Add a thought</Text>
+            <View style={{backgroundColor: '#000', flex: 2, flexDirection: 'row', justifyContent: 'space-around'}}>
+              <TouchableOpacity onPress={this._toggleModal}>
+                <Icon name='keyboard-voice' flex={1} size={102} color={GlobalColors.primaryColor} />
+              </TouchableOpacity>
+              <TouchableOpacity onPress={this._toggleTextModal}>
+                <Icon name='mode-edit' flex={1} size={102} color={GlobalColors.primaryColor} />
+              </TouchableOpacity>
             </View>
-            <View style={styles.textBox}>
-              <Text style={GlobalStyles.text}>Exercise</Text>
-              <Text style={GlobalStyles.subText}>Goal: 3 times/week</Text>
-            </View>
-            <TouchableOpacity onPress={this._toggleModal}>
-              <Icon name='add' justifyContent='flex-end' flex={1} size={36} color={GlobalColors.primaryColor} />
-            </TouchableOpacity>
           </View>
           <View style={{height:15}}/>
         </Card>
 
-        <Modal isVisible={this.state.isModalVisible} backdropOpacity={1.0} backdropColor='#fff' style={{ margin: 10 }}>
+        <Modal isVisible={this.state.isModalVisible} backdropOpacity={1.0} backdropColor={GlobalColors.primaryColor} style={{ margin: 10 }}>
           <ScrollView style={{ flex: 1 }}>
             <Header
-              backgroundColor='#fff'
-              statusBarProps={{ barStyle: 'default' }}
+              backgroundColor='#00cc66'
+              statusBarProps={{ barStyle: 'light-content' }}
               rightComponent={this.renderRight()}
               outerContainerStyles={{height: Platform.OS === 'ios' ? 70 :  70 - 24, borderBottomWidth: 0}}
             />
@@ -108,22 +112,45 @@ class ExerciseCard extends Component {
               <View style={{ flex: 1 }}/>
 
               <View style={{ flex: 12 }}>
-                <View style={{backgroundColor: '#fff', padding: 10, marginBottom: 10}}>
-                  <Text style={GlobalStyles.text}>Exercise</Text>
-                  <View style={{height:20}}/>
-                  <MH_Slider name="Exercise"/>
-                </View>
-                <View style={{padding:20}}>
-                  <MultiSelectList data={exerciseList} />
-                </View>
+                <AudioExample />
               </View>
-              <View style={{height:15}}/>
+
               <View style={{ flex: 2 }}>
                 <Button
                   large
                   onPress={this._toggleModal}
-                  backgroundColor={GlobalColors.primaryColor}
-                  color='#fff'
+                  backgroundColor="#fff"
+                  color={GlobalColors.primaryColor}
+                  rounded={true}
+                  fontSize={22}
+                  fontWeight='bold'
+                  title='SUBMIT' />
+              </View>
+            </View>
+          </ScrollView>
+        </Modal>
+
+        <Modal isVisible={this.state.isTextModalVisible} backdropOpacity={1.0} backdropColor={GlobalColors.primaryColor} style={{ margin: 10 }}>
+          <ScrollView style={{ flex: 1 }}>
+            <Header
+              backgroundColor='#00cc66'
+              statusBarProps={{ barStyle: 'light-content' }}
+              rightComponent={this.renderRight()}
+              outerContainerStyles={{height: Platform.OS === 'ios' ? 70 :  70 - 24, borderBottomWidth: 0}}
+            />
+            <View style={{ flex: 1 }}>
+              <View style={{ flex: 1 }}/>
+
+              <View style={{ flex: 12 }}>
+                <AudioExample />
+              </View>
+
+              <View style={{ flex: 2 }}>
+                <Button
+                  large
+                  onPress={this._toggleModal}
+                  backgroundColor="#fff"
+                  color={GlobalColors.primaryColor}
                   rounded={true}
                   fontSize={22}
                   fontWeight='bold'
