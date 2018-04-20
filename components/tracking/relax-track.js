@@ -19,9 +19,6 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.2,
     shadowRadius: 3,
   },
-  text: {
-    color: '#fff',
-  }
 });
 
 const relaxList = [
@@ -68,7 +65,7 @@ class RelaxCard extends Component {
   renderRight() {
     return (
       <TouchableOpacity onPress={this._toggleModal}>
-        <Icon name='close' flex={1} size={36} color='#fff' />
+        <Icon name='close' flex={1} size={36} color={GlobalColors.primaryColor} />
       </TouchableOpacity>
     )
   }
@@ -94,10 +91,10 @@ class RelaxCard extends Component {
           <View style={{height:15}}/>
         </Card>
 
-        <Modal isVisible={this.state.isModalVisible} backdropOpacity={1.0} backdropColor={GlobalColors.primaryColor} style={{ margin: 10 }}>
-          <View style={{ flex: 1 }}>
+        <Modal isVisible={this.state.isModalVisible} backdropOpacity={1.0} backdropColor='#fff' style={{ margin: 10 }}>
+          <ScrollView style={{ flex: 1 }}>
             <Header
-              backgroundColor='#00cc66'
+              backgroundColor='#fff'
               statusBarProps={{ barStyle: 'light-content' }}
               rightComponent={this.renderRight()}
               outerContainerStyles={{height: Platform.OS === 'ios' ? 70 :  70 - 24, borderBottomWidth: 0}}
@@ -105,24 +102,24 @@ class RelaxCard extends Component {
             <View style={{ flex: 1 }}>
               <View style={{ flex: 12 }}>
                 <View style={{padding: 10, marginBottom: 10, marginTop: 10}}>
-                  <Text style={[GlobalStyles.text,styles.text]}>What did you do to relax?</Text>
+                  <Text style={GlobalStyles.text}>What did you do to relax?</Text>
                 </View>
                 <MultiSelectList data={relaxList} />
               </View>
-
+              <View style={{height:20}}/>
               <View style={{ flex: 2, marginTop: 10 }}>
                 <Button
                   large
                   onPress={this._toggleModal}
-                  backgroundColor="#fff"
-                  color={GlobalColors.primaryColor}
+                  backgroundColor={GlobalColors.primaryColor}
+                  color='#fff'
                   rounded={true}
                   fontSize={22}
                   fontWeight='bold'
                   title='SUBMIT' />
               </View>
             </View>
-          </View>
+          </ScrollView>
         </Modal>
 
       </View>

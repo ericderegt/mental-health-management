@@ -24,9 +24,6 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.2,
     shadowRadius: 3,
   },
-  text: {
-    color: '#00cc66',
-  }
 });
 
 const exerciseList = [
@@ -41,17 +38,17 @@ const exerciseList = [
     checked: false,
   },
   {
-    name: 'Soulcycle',
+    name: 'Bike',
     id: 3,
     checked: false,
   },
   {
-    name: 'SLT',
+    name: 'Yoga',
     id: 4,
     checked: false,
   },
   {
-    name: 'Tennis',
+    name: 'Swim',
     id: 5,
     checked: false,
   },
@@ -89,7 +86,7 @@ class ExerciseCard extends Component {
               <Icon name='directions-run' flex={1} size={36} color={GlobalColors.greyColor} />
             </View>
             <View style={styles.textBox}>
-              <Text style={[GlobalStyles.text, styles.text]}>Exercise</Text>
+              <Text style={GlobalStyles.text}>Exercise</Text>
               <Text style={GlobalStyles.subText}>Goal: 3 times/week</Text>
             </View>
             <TouchableOpacity onPress={this._toggleModal}>
@@ -103,7 +100,7 @@ class ExerciseCard extends Component {
           <ScrollView style={{ flex: 1 }}>
             <Header
               backgroundColor='#fff'
-              statusBarProps={{ barStyle: 'light-content' }}
+              statusBarProps={{ barStyle: 'normal' }}
               rightComponent={this.renderRight()}
               outerContainerStyles={{height: Platform.OS === 'ios' ? 70 :  70 - 24, borderBottomWidth: 0}}
             />
@@ -112,9 +109,13 @@ class ExerciseCard extends Component {
 
               <View style={{ flex: 12 }}>
                 <View style={{backgroundColor: '#fff', padding: 10, marginBottom: 10}}>
+                  <Text style={GlobalStyles.text}>Exercise</Text>
+                  <View style={{height:20}}/>
                   <MH_Slider name="Exercise"/>
                 </View>
-                <MultiSelectList data={exerciseList} />
+                <View style={{padding:20}}>
+                  <MultiSelectList data={exerciseList} />
+                </View>
               </View>
               <View style={{height:15}}/>
               <View style={{ flex: 2 }}>
