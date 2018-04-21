@@ -6,6 +6,7 @@ import {
   StyleSheet,
   Text,
   TouchableHighlight,
+  Platform,
   View,
 } from 'react-native';
 import Expo, { Asset, Audio, FileSystem, Font, Permissions } from 'expo';
@@ -22,24 +23,30 @@ class IconButton {
   }
 }
 
-const ICON_RECORD_BUTTON = new IconButton(require('../assets/images/record_button.png'), 70, 119);
-const ICON_RECORDING = new IconButton(require('../assets/images/record_icon.png'), 20, 14);
+const ICON_RECORD_BUTTON = new IconButton(require('../assets/images/record-button.png'), 100, 119);
+const ICON_RECORDING = new IconButton(require('../assets/images/record-icon.png'), 30, 30);
 
-const ICON_PLAY_BUTTON = new IconButton(require('../assets/images/play_button.png'), 34, 51);
-const ICON_PAUSE_BUTTON = new IconButton(require('../assets/images/pause_button.png'), 34, 51);
-const ICON_STOP_BUTTON = new IconButton(require('../assets/images/stop_button.png'), 22, 22);
+const ICON_PLAY_BUTTON = new IconButton(require('../assets/images/play-arrow.png'), 50, 51);
+const ICON_PAUSE_BUTTON = new IconButton(require('../assets/images/pause-button.png'), 60, 60);
+const ICON_STOP_BUTTON = new IconButton(require('../assets/images/stop-button.png'), 22, 22);
 
-const ICON_MUTED_BUTTON = new IconButton(require('../assets/images/muted_button.png'), 67, 58);
-const ICON_UNMUTED_BUTTON = new IconButton(require('../assets/images/unmuted_button.png'), 67, 58);
+const ICON_MUTED_BUTTON = new IconButton(require('../assets/images/muted-button.png'), 67, 68);
+const ICON_UNMUTED_BUTTON = new IconButton(require('../assets/images/unmuted-button.png'), 67, 68);
 
-const ICON_TRACK_1 = new IconButton(require('../assets/images/track_1.png'), 166, 5);
-const ICON_THUMB_1 = new IconButton(require('../assets/images/thumb_1.png'), 18, 19);
-const ICON_THUMB_2 = new IconButton(require('../assets/images/thumb_2.png'), 15, 19);
+const ICON_TRACK_1 = new IconButton(require('../assets/images/thumb.png'), 166, 5);
+const ICON_THUMB_1 = new IconButton(require('../assets/images/thumb.png'), 18, 19);
+const ICON_THUMB_2 = new IconButton(require('../assets/images/thumb.png'), 15, 19);
 
 const { width: DEVICE_WIDTH, height: DEVICE_HEIGHT } = Dimensions.get('window');
-const BACKGROUND_COLOR = '#FFF8ED';
+const BACKGROUND_COLOR = '#FFF';
 const LIVE_COLOR = '#FF0000';
 const DISABLED_OPACITY = 1.0;
+
+const Fonts = {
+  standard: Platform.OS === 'android'
+    ? 'Roboto'
+    : 'Avenir',
+}
 
 class AudioExample extends React.Component {
   constructor(props) {
@@ -297,7 +304,7 @@ class AudioExample extends React.Component {
     ) : !this.state.haveRecordingPermissions ? (
       <View style={styles.container}>
         <View />
-        <Text style={[styles.noPermissionsText, { fontFamily: 'cutive-mono-regular' }]}>
+        <Text style={[styles.noPermissionsText, { fontFamily: Fonts.standard }]}>
           You must enable audio recording permissions in order to use this app.
         </Text>
         <View />
@@ -319,19 +326,19 @@ class AudioExample extends React.Component {
               style={styles.wrapper}
               onPress={this._onRecordPressed}
               disabled={this.state.isLoading}>
-              <Image style={styles.image} source={ICON_RECORD_BUTTON.module} />
+              <Image style={[styles.image,{width:ICON_RECORD_BUTTON.width, height:ICON_RECORD_BUTTON.height}]} source={ICON_RECORD_BUTTON.module} />
             </TouchableHighlight>
             <View style={styles.recordingDataContainer}>
               <View />
-              <Text style={[styles.liveText, { fontFamily: 'cutive-mono-regular' }]}>
+              <Text style={[styles.liveText, { fontFamily: Fonts.standard }]}>
                 {this.state.isRecording ? 'LIVE' : ''}
               </Text>
               <View style={styles.recordingDataRowContainer}>
                 <Image
-                  style={[styles.image, { opacity: this.state.isRecording ? 1.0 : 0.0 }]}
+                  style={[styles.image,{ opacity: this.state.isRecording ? 1.0 : 0.0 }, {width:ICON_RECORDING.width, height:ICON_RECORDING.height}]}
                   source={ICON_RECORDING.module}
                 />
-                <Text style={[styles.recordingTimestamp, { fontFamily: 'cutive-mono-regular' }]}>
+              <Text style={[styles.recordingTimestamp, { fontFamily: Fonts.standard }]}>
                   {this._getRecordingTimestamp()}
                 </Text>
               </View>
@@ -351,16 +358,7 @@ class AudioExample extends React.Component {
           ]}>
           <View />
           <View style={styles.playbackContainer}>
-            <Slider
-              style={styles.playbackSlider}
-              trackImage={ICON_TRACK_1.module}
-              thumbImage={ICON_THUMB_1.module}
-              value={this._getSeekSliderPosition()}
-              onValueChange={this._onSeekSliderValueChange}
-              onSlidingComplete={this._onSeekSliderSlidingComplete}
-              disabled={!this.state.isPlaybackAllowed || this.state.isLoading}
-            />
-            <Text style={[styles.playbackTimestamp, { fontFamily: 'cutive-mono-regular' }]}>
+            <Text style={[styles.playbackTimestamp, { fontFamily: Fonts.standard }]}>
               {this._getPlaybackTimestamp()}
             </Text>
           </View>
@@ -372,16 +370,15 @@ class AudioExample extends React.Component {
                 onPress={this._onMutePressed}
                 disabled={!this.state.isPlaybackAllowed || this.state.isLoading}>
                 <Image
-                  style={styles.image}
+                  style={[styles.image,{width:ICON_MUTED_BUTTON.width, height:ICON_MUTED_BUTTON.height}]}
                   source={this.state.muted ? ICON_MUTED_BUTTON.module : ICON_UNMUTED_BUTTON.module}
                 />
               </TouchableHighlight>
               <Slider
                 style={styles.volumeSlider}
-                trackImage={ICON_TRACK_1.module}
-                thumbImage={ICON_THUMB_2.module}
                 value={1}
                 onValueChange={this._onVolumeSliderValueChange}
+                minimumTrackTintColor={GlobalColors.primaryColor}
                 disabled={!this.state.isPlaybackAllowed || this.state.isLoading}
               />
             </View>
@@ -392,7 +389,7 @@ class AudioExample extends React.Component {
                 onPress={this._onPlayPausePressed}
                 disabled={!this.state.isPlaybackAllowed || this.state.isLoading}>
                 <Image
-                  style={styles.image}
+                  style={[styles.image,{width:ICON_PAUSE_BUTTON.width, height:ICON_PAUSE_BUTTON.height}]}
                   source={this.state.isPlaying ? ICON_PAUSE_BUTTON.module : ICON_PLAY_BUTTON.module}
                 />
               </TouchableHighlight>
@@ -401,7 +398,7 @@ class AudioExample extends React.Component {
                 style={styles.wrapper}
                 onPress={this._onStopPressed}
                 disabled={!this.state.isPlaybackAllowed || this.state.isLoading}>
-                <Image style={styles.image} source={ICON_STOP_BUTTON.module} />
+                <Image style={[styles.image,{width:ICON_STOP_BUTTON.width, height:ICON_STOP_BUTTON.height}]} source={ICON_STOP_BUTTON.module} />
               </TouchableHighlight>
             </View>
             <View />
