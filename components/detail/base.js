@@ -24,6 +24,8 @@ class Detail extends Component {
                     return <VideoExercise item={params.item}/>;
                 case 3:
                     return <MeditationExercise item={params.item}/>;
+                case 4:
+                    return <TextExercise item={params.item}/>;
                 default:
                     return null;
             }

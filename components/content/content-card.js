@@ -5,6 +5,10 @@ import Modal from "react-native-modal";
 
 import { GlobalStyles, GlobalColors } from '../../themes/global-styles';
 import MultiSelectList from '../modal-list';
+import { textExerciseList } from '../../data/text_exercises';
+import { VideoList } from '../../data/video-exercises';
+import { MeditationList } from '../../data/meditation-exercises';
+import { ArticleList } from '../../data/articles';
 
 const styles = StyleSheet.create({
   container: {
@@ -26,89 +30,11 @@ const styles = StyleSheet.create({
   }
 });
 
-const MeditationsList = [
-  {
-    name: 'Observe a leaf',
-    id: 1,
-    category_id: 1,
-    bgColor: '#2E7D32',
-    text: 'Collect a leaf off the ground from somewhere. This is especially easy in autumn. It doesn’t matter what kind of leaf it is or what it looks like. Any leaf will do. \n\nHold it in your hands and allow your attention to be fully absorbed by it. Observe it. Notice things about its physical characteristics. \n\nFor example, you could say to yourself, I notice that this leaf has three sharp points on one side, and a rounded edge on the other. Or, I see there’s yellowish lines radiating out from the bottom to the top. \n\nNotice textures, colors, and shapes without judging them as good or bad, pleasant or unpleasant, ugly or beautiful. Don’t assess or think about the leaf. Just observe it for what it is. Do this simple mindfulness exercise for five minutes.',
-    duration: 5,
-  },
-  {
-    name: 'How to cope with anxiety',
-    id: 2,
-    category_id: 2,
-    text: 'Anxiety is one of most prevalent mental health disorders, with 1 out of 14 people around the world being likely affected. Leading up to conditions such as depression, increased risk for suicide, disability and requirement of high health services, very few people who often need treatment actually receive it. In her talk “How to cope with anxiety”, Olivia Remes of the University of Cambridge will share her vision on anxiety and will unravel ways to treat and manage this health disorder',
-    bgColor: '#81C784',
-    uri: 'https://www.youtube.com/watch?v=WWloIAQpMcQ',
-    duration: 15,
-  },
-  {
-    name: 'Articles',
-    id: 3,
-    category_id: 3,
-    bgColor: '#388E3C',
-    duration: 2,
-  },
-  {
-    name: 'Videos',
-    id: 4,
-    category_id: 2,
-    bgColor: '#1B5E20',
-    duration: 10,
-  },
-]
-
-const ExercisesList = [
-  {
-    name: 'Articles',
-    id: 3,
-    category_id: 3,
-    bgColor: '#388E3C',
-    duration: 2,
-  },
-  {
-    name: 'Videos',
-    id: 4,
-    category_id: 2,
-    bgColor: '#1B5E20',
-    duration: 10,
-  },
-]
-
-const ArticlesList = [
-  {
-    name: 'Articles',
-    id: 3,
-    category_id: 3,
-    bgColor: '#388E3C',
-    duration: 2,
-  },
-  {
-    name: 'Videos',
-    id: 4,
-    category_id: 2,
-    bgColor: '#1B5E20',
-    duration: 10,
-  },
-]
-
-const VideosList = [
-  {
-    name: 'Videos',
-    id: 4,
-    category_id: 2,
-    bgColor: '#1B5E20',
-    duration: 10,
-  },
-]
-
 const selectedCategory = {
-  'Meditations': MeditationsList,
-  'Exercises': ExercisesList,
-  'Articles': ArticlesList,
-  'Videos': VideosList,
+  'Meditations': MeditationList,
+  'Exercises': textExerciseList,
+  'Articles': ArticleList,
+  'Videos': VideoList,
 }
 
 class ContentCard extends Component {

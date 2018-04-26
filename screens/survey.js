@@ -72,7 +72,12 @@ const checkInList = [
 class Survey extends Component {
   constructor (props) {
     super(props)
+    this.state = { selection: 'Anxious'};
   };
+
+  handleSelection = (value) => {
+      this.setState({selection: checkInList[value+1].name});
+  }
 
   render() {
     const { navigate } = this.props.navigation;
@@ -108,7 +113,7 @@ class Survey extends Component {
                 <Text style={[GlobalStyles.subText, styles.headerText]}>How are you feeling?</Text>
               </View>
               <View style={{padding: 10, marginBottom: 5}}>
-                <MultiSelectList data={checkInList} />
+                <MultiSelectList data={checkInList} selection={this.handleSelection} />
               </View>
               <View style={{padding: 10, marginBottom: 5}}>
                 <Text style={[GlobalStyles.subText, styles.headerText]}>How much time do you have?</Text>
@@ -121,7 +126,7 @@ class Survey extends Component {
             <View style={{ flex: 2 }}>
               <View style={{height:20}}/>
               <Button
-                onPress={() => navigate('Results')}
+                onPress={() => navigate('Results', { data: this.state.selection })}
                 backgroundColor={GlobalColors.primaryColor}
                 color={GlobalColors.backgroundColor}
                 rounded={true}

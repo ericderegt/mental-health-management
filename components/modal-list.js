@@ -52,6 +52,7 @@ class MultiSelectList extends React.PureComponent {
       // copy the map rather than modifying state.
       const selected = new Map(state.selected);
       selected.set(id, !selected.get(id)); // toggle
+      this.props.selection(parseInt(id));
       return {selected};
     });
   };

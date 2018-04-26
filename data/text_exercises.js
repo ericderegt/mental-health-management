@@ -1,4 +1,4 @@
-const textExerciseList = [
+export const textExerciseList = [
   {
     name: 'Observe a leaf',
     id: 11,
