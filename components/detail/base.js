@@ -3,6 +3,7 @@ import { View, Text } from 'react-native';
 
 import TextExercise from './text-exercise';
 import VideoExercise from './video';
+import MeditationExercise from './meditation';
 import { GlobalStyles, GlobalColors } from '../../themes/global-styles';
 
 class Detail extends Component {
@@ -22,7 +23,7 @@ class Detail extends Component {
                 case 2:
                     return <VideoExercise item={params.item}/>;
                 case 3:
-                    return <Text>3</Text>;
+                    return <MeditationExercise item={params.item}/>;
                 default:
                     return null;
             }

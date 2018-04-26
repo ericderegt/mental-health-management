@@ -34,13 +34,13 @@ const resultsList = [
     duration: 3,
   },
   {
-    name: 'How To Deal With Depression - 10 Tips (Part 1)',
-    id: 3,
-    category_id: 2,
+    name: 'Breathing Meditation',
+    id: 5,
     text: '',
+    category_id: 3,
+    duration: 5,
     bgColor: '#81C784',
-    uri: 'https://www.youtube.com/watch?v=G7cDg0Trh1E',
-    duration: 9,
+    uri: 'http://marc.ucla.edu/mpeg/01_Breathing_Meditation.mp3',
   },
 ]
 
