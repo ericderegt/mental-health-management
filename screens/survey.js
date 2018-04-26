@@ -23,22 +23,22 @@ const checkInList = [
   },
   {
     name: 'Anxious',
-    id: 4,
-    checked: false,
-  },
-  {
-    name: 'Calm',
     id: 3,
     checked: false,
   },
   {
+    name: 'Calm',
+    id: 4,
+    checked: false,
+  },
+  {
     name: 'Stressed',
-    id: 6,
+    id: 5,
     checked: false,
   },
   {
     name: 'Sad',
-    id: 5,
+    id: 6,
     checked: false,
   },
   {
@@ -76,7 +76,7 @@ class Survey extends Component {
   };
 
   handleSelection = (value) => {
-      this.setState({selection: checkInList[value+1].name});
+      this.setState({selection: checkInList[value-1].name});
   }
 
   render() {

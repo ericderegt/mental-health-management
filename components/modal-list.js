@@ -15,6 +15,7 @@ styles = StyleSheet.create({
 class ModalListItem extends React.PureComponent {
   _onPress = () => {
     this.props.onPressItem(this.props.id);
+    this.props.selection(this.props.id);
   };
 
   render() {
@@ -52,7 +53,6 @@ class MultiSelectList extends React.PureComponent {
       // copy the map rather than modifying state.
       const selected = new Map(state.selected);
       selected.set(id, !selected.get(id)); // toggle
-      this.props.selection(parseInt(id));
       return {selected};
     });
   };
@@ -61,6 +61,7 @@ class MultiSelectList extends React.PureComponent {
     <ModalListItem
       id={item.id}
       onPressItem={this._onPressItem}
+      selection={this.props.selection}
       selected={!!this.state.selected.get(item.id)}
       name={item.name}
     />
